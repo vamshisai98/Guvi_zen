@@ -1,0 +1,140 @@
+* {
+    margin: 0;
+}
+
+body {
+    padding-top: 30px;
+    background-color: #e9e9e9;
+}
+
+.navigation {
+    max-width: 700px;
+    padding: 3px;
+    margin: 0 auto;
+    border-bottom: 1px solid #dcdcdc;
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer{
+    max-width: 700px;
+    padding: 3px;
+    margin: 0 auto;
+    border-top: 1px solid #dcdcdc;
+}
+.title{
+    font-size: 20px;
+    padding: 10px;
+}
+
+
+ul {
+    list-style-type: none;
+    flex-direction : row;
+    display        : flex;
+    justify-content: flex-end;
+}
+
+
+li a {
+    display   : block;
+    color     : #2196F3;
+    text-align: center;
+    padding   : 8px 16px;
+
+    margin         : 2px;
+    text-decoration: none;
+    border-radius  : 4px;
+}
+
+
+li a:active {
+    background: #2196F3;
+    color     : white;
+}
+
+.active {
+    background: #2196F3;
+    color     : white;
+}
+
+.container {
+    margin          : 0 auto;
+    max-width       : 700px;
+    background-color:#e9e9e9;
+    border-radius   : 3px;
+}
+
+.box-1 {
+    margin: 5px;
+    margin-top: 30px;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #d3d7da;
+}
+.heading{
+    font-size: 22px;
+
+}
+
+.heading,
+.message,
+.sign,
+.launch {
+
+    margin: 10px;
+}
+
+.sign{
+    width: 100px;
+    background: #4caf50;
+    padding: 10px;
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.launch{
+    width: 150px;
+    background: #0f9ad8;
+    padding: 10px;
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+.box-2{
+    margin: 5px;
+    margin-top: 30px;
+    padding: 5px;
+    font-size: 10px;
+    margin-bottom: 40px;
+    
+}
+b{
+    color: blue;
+}
+
+.card-1,.card-2,.card-3{
+    display: flex;
+    flex-direction: row;
+    background:#e9e9e9;;
+}
+.content1,.content2{
+    flex: 1 1 0;
+    margin: 5px;
+    padding: 5px;
+}
+.footer-con{
+    padding: 10px;
+}
+
+
+p{
+    margin: 5px 0px;
+}
+
+

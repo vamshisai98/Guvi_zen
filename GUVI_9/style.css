@@ -1,0 +1,200 @@
+.name{
+    background: #3e3e3e;
+    height: 250px;
+}
+.avatarImage {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid  #ffc107;
+    position: relative;
+    border-style: dotted;
+    left: 50%;
+    padding: 2px;
+    transform: translate(-50%, 15%);
+ }
+ .bar{
+    background: white;
+    position: relative;
+    top: 10%;
+    height: 30px;
+
+ }
+ .bio-name{
+    background: #ffc107;
+    position: relative;
+    padding: 5px;
+    transform: translate(110%,30%);
+    height: 50px;
+    width: 30%;
+    bottom: 40px;
+    border-radius: 5px;
+ }
+ .name-details{
+    text-align: center;
+    font-size: 41px;
+ }
+ .address{
+    padding: 5px 0px;
+    text-align: center;
+    margin-top: 5px;
+    background: white;
+    border-bottom: 1px solid lightgray;
+ }
+ .main{
+    background: white;
+    width: 100%;
+    padding: 5px;
+ }
+ .main-0{
+    padding: 5px;
+    display: inline-flex;
+    width: 100%;
+ }
+ .main-1{
+    display: inline-block;
+    width: 100%;
+    margin: 4px;
+    border-right: 2px solid #80808061;
+}
+ 
+ .main-2{
+    width: 100%;
+    display: inline-block;
+    margin: 4px;
+ }
+
+ #span-1{
+    margin-left: 60px;
+ }
+ #para-1{
+    margin-top: 30px;
+    width: 500px;
+ }
+ .profile{
+     margin:0px 5px 20px;
+     background:white;
+
+    
+
+ }
+ .profile-pic{
+    width: 50px;
+    height: 50px;
+    background: #3e3e3e;
+    margin: 10px;
+    margin-top: 0;
+    border-radius: 50%;
+    display: inline-block;
+    border: 2px solid #ffc107;
+    border-style: dotted;
+ }
+ .fas{
+    font-size: 30px;
+    position: relative;
+    left: 24%;
+    color: #ffc107;
+    top: 15%;
+ }
+ span{
+    font-size: 30px ;
+    color: #3e3e3e;
+    vertical-align: middle;
+ }
+ p{
+     color:#3e3e3e;
+     padding: 5px;
+    margin: 10px;
+ }
+ td{
+    padding: 2px 0px 0px 6px;
+    width: 55%;
+ }
+ .progress-1{
+    background: #d3d3d378;
+    width: 200px;
+    height: 6px;
+    display: flex;
+ }
+ .length{
+    width: 80%;
+    height: 6px;
+    display: inline-block;
+    background: linear-gradient(to right, rgba(255, 193, 7, 1), rgba(255, 193, 7, 0.1));
+  
+ }
+  .length1{
+    width: 75%;
+    height: 6px;
+    display: inline-block;
+    background: linear-gradient(to right, rgba(255, 193, 7, 1), rgba(255, 193, 7, 0.1));
+  }
+
+
+  .length2{
+    width: 90%;
+    height: 6px;
+    display: inline-block;
+    background: linear-gradient(to right, rgba(255, 193, 7, 1), rgba(255, 193, 7, 0.1));;
+  
+  }
+  .length3{
+    width: 60%;
+    height: 6px;
+    display: inline-block;
+    background: linear-gradient(to right, rgba(255, 193, 7, 1), rgba(255, 193, 7, 0.1));;
+  
+  }
+  .length4{
+    width: 80%;
+    height: 6px;
+    display: inline-block;
+    background: linear-gradient(to right, rgba(255, 193, 7, 1), rgba(255, 193, 7, 0.1));;
+  
+  }
+  .length5{
+    width: 60%;
+    height: 6px;
+    display: inline-block;
+    background: linear-gradient(to right, rgba(255, 193, 7, 1), rgba(255, 193, 7, 0.1));;
+  
+  }
+ .circle{
+    background: white;
+    width: 10px;
+    display: inline-block;
+    height: 10px;
+    bottom: 3px;
+    position: relative;
+    border: 1px solid lightgray;
+    border-radius: 50%;
+ }
+ .length6{
+    width: 80%;
+    height: 6px;
+    display: inline-block;
+    background: linear-gradient(to right, rgba(255, 193, 7, 1), rgba(255, 193, 7, 0.1));;
+  
+  }
+ table{
+     margin-left:5px
+ }
+ h2{
+     text-align: center;
+     margin:2px 0px;
+     font-size: 18px;
+ }
+ .work{
+    margin-left: 12px;
+    font-weight: bold;
+ }
+ .date{
+    display: block;
+    float: right;
+    margin-right: 30px;
+    font-weight: normal;
+
+ }
+ label{
+    margin-left: 12px;
+ }

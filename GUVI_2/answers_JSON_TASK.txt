@@ -1,0 +1,245 @@
+1)var cat = {
+    name: 'Fluffy',
+    activities: ['play', 'eat cat food'],
+    catFriends: [{
+            name: 'bar',
+            activities: ['be grumpy', 'eat bread omblet'],
+            weight: 8,
+            furcolor: 'white'
+        },
+        {
+            name: 'foo',
+            activities: ['sleep', 'pre - sleep naps'],
+            weight: 3
+        }
+    ]
+}
+console.log(cat);
+
+cat.height = 8;
+cat.weight = 10;
+cat.name = "Fluffyy";
+console.log(cat);
+console.log(cat.catFriends[0].activities.concat(cat.catFriends[1].activities));
+console.log(cat.catFriends[0].name + ',' + cat.catFriends[1].name);
+console.log(cat.catFriends[0].weight + cat.catFriends[1].weight);
+console.log(cat.activities.concat(cat.catFriends[0].activities).concat(cat.catFriends[1].activities));
+cat.catFriends[0].activities.push('Drinking');
+cat.catFriends[0].activities.push('pooping')
+cat.catFriends[1].activities.push('Feather');
+cat.catFriends[1].activities.push( 'Boxes');
+console.log(cat.catFriends[0].activities, cat.catFriends[1].activities);
+cat.catFriends[0].furcolor = 'white';
+console.log(cat.catFriends[0]);
+
+********************************************************************************************************************************************
+
+2) var myCar = {
+    make: "Bugatti",
+    model: "Bugatti La Voiture Noire",
+    year: 2019,
+    accidents: [
+        {
+            date: "3/15/2019",
+    damage_points: "5000",
+    atFaultForAccident: true
+        },
+        {
+            date: "7/4/2022",
+    damage_points: "2200",
+    atFaultForAccident: true
+        },
+        {
+            date: "6/22/2021",
+    damage_points: "7900",
+    atFaultForAccident: true
+        }
+    ]
+}
+
+myCar.accidents.forEach((obj,i)=>{
+   console.log(obj.atFaultForAccident = false)
+   console.log(obj.date)
+})
+********************************************************************************************************************************************
+
+
+3)  var obj = {name : "RajiniKanth", age : 33, hasPets : false};
+  
+function printAllValues(obj) {
+ // your code here
+
+ 
+return Object.values(obj);
+
+}
+console.log(printAllValues(obj)
+
+********************************************************************************************************************************************
+
+
+4)   var obj = {name : "RajiniKanth", age : 25, hasPets : true};
+  
+function printAllValues(obj) {
+ // your code here
+
+ 
+return Object.keys(obj);
+
+}
+console.log(printAllValues(obj))
+
+
+********************************************************************************************************************************************
+
+5)   var obj = {name: "ISRO", age: 35, role: "Scientist"};
+function convertListToObject(obj) {
+
+ return Object.entries(obj)
+}
+console.log(convertListToObject(obj))
+
+
+********************************************************************************************************************************************
+
+6)var arr = ['GUVI', 'I', 'am', 'a geek'];
+
+function transformFirstAndLast(arr) {
+
+    return {
+        [arr[0]]: arr[arr.length - 1]
+    };
+}
+console.log(transformFirstAndLast(arr));
+
+
+
+
+********************************************************************************************************************************************
+
+
+7)  var arr = [["make", "Ford"], ["model", "Mustang"], ["year", 1964]];
+ 
+ function convertListToObject() {
+
+  var obj = Object.fromEntries(arr)
+  return obj
+  
+}
+console.log(convertListToObject())
+
+********************************************************************************************************************************************
+
+8)var arr= [[["firstName", "Vasanth"], ["lastName", "Raja"], ["age", 24], ["role", "JSWizard"]],
+    [["firstName", "Sri"], ["lastName", "Devi"], ["age", 28], ["role", "Coder"]]];
+ 
+function transformEmployeeData(arr) {
+    var transformEmployeeList = [];
+
+    arr.map((list) => {
+        let obj = {};
+        list.map((val) => {
+            obj[val[0]] = val[1];
+        })
+        transformEmployeeList.push(obj);
+    })
+
+    return transformEmployeeList;
+}
+console.log(transformEmployeeData(arr));
+
+********************************************************************************************************************************************
+
+9)var expected = {
+    foo: 5,
+    bar: 6
+};
+var actual = {
+    foo: 5,
+    bar: 6
+}
+
+function assertObjectsEqual(actual, expected, testName) {
+
+    if (actual.foo == expected.foo && actual.bar == expected.bar)
+        return 'PASSED';
+    else
+        return 'FAILED [my test] Expected {“foo”:6,”bar”:5}, but got {“foo”:5,”bar”:6}';
+}
+console.log(assertObjectsEqual(actual, expected, 'detects that two objects are equal'));
+
+********************************************************************************************************************************************
+10)var securityQuestions = [{
+        question: 'What was your first pet’s name?',
+        expectedAnswer: 'FlufferNutter'
+    },
+    {
+        question: 'What was the model year of your first car?',
+        expectedAnswer: '1985'
+    },
+    {
+        question: 'What city were you born in?',
+        expectedAnswer: 'NYC'
+    }
+]
+
+function checkSecurityQuestions(securityQuestions, question, answer) {
+
+    // your code here
+    for (let i = 0; i < securityQuestions.length; i++) {
+        let arr = securityQuestions[i];
+        if (arr.question == question && arr.expectedAnswer == answer)
+            return true;
+    }
+    return false;
+}
+//Test case1:
+var ques = 'What was your first pet’s name?';
+var ans = 'FlufferNutter';
+var status = checkSecurityQuestions(securityQuestions, ques, ans);
+console.log(status); 
+//Test case2:
+var ques = 'What was your first pet’s name?';
+var ans = 'DufferNutter';
+var status = checkSecurityQuestions(securityQuestions, ques, ans);
+console.log(status);
+
+********************************************************************************************************************************************
+
+var students = [
+    {
+    name: "Siddharth Abhimanyu", age: 21}, 
+    { name: "Malar", age: 25},
+    {name: "Maari",age: 18},
+    {name: "Bhallala Deva",age: 17},
+    {name: "Baahubali",age: 16},
+    {name: "AAK chandran",age: 23},  
+    {name:"Gabbar Singh",age: 33},
+    {name: "Mogambo",age: 53},
+    {name: "Munnabhai",age: 40},
+    {name: "Sher Khan",age: 20},
+    {name: "Chulbul Pandey",age: 19},{name: "Anthony",age: 28},
+    {name: "Devdas",age: 56} 
+    ];
+  function returnMinors(arr) {
+    let list = [];
+    arr.map((obj) => {
+        if (obj.age < 20)
+            list.push(obj);
+    })
+    return list;
+}
+console.log(returnMinors(students));
+
+
+********************************************************************************************************************************************
+
+12)let request = new XMLHttpRequest;
+request.open('GET', 'https://restcountries.eu/rest/v2/all', true);
+request.send();
+request.onload = function () {
+    let data = JSON.parse(this.response);
+    data.map((obj)=>{
+        console.log(obj.flag);
+    })
+}

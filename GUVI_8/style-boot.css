@@ -1,0 +1,32 @@
+.container{
+    background: #8e8e8e30;
+}
+#heading{
+    font-size: 60px;
+
+}
+#caption{
+    font-size: 9px;
+}
+#img-cap{
+    font-size: 12px;
+}
+.second{
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+    
+}
+.sec-2 {
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+  padding: 10px 0;
+  padding-bottom: 50px;
+    margin: 25px 0;
+}
+.sec-3{
+    padding: 10px 0;
+}
+.sec-4{
+    margin-top: 20px;
+    padding: 20px;
+}

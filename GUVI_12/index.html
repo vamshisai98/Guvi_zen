@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+   
+  
+<div class="page-count" id="page-count">
+    <input type="button" id="first" onclick="firstPage()" value="first" />
+	<input type="button" id="next" onclick="nextPage()" value=">>" />
+	<input type="button" id="previous" onclick="lastPage()" value="last" />
+    <input type="button" id="last" onclick="lastPage()" value="<<" />
+    <!-- <input type="button" id="one" onclick="data(1)" value="1" />
+    <input type="button" id="two" onclick="data(2)" value="2" />
+    <input type="button" id="three" onclick="data(3)" value="3" />
+    <input type="button" id="four" onclick="data(4)" value="4" />
+    <input type="button" id="five" onclick="data(5)" value="5" />
+    <input type="button" id="six" onclick="data(6)" value="6" />
+    <input type="button" id="seven" onclick="data(7)" value="7" />
+    <input type="button" id="eight" onclick="data(8)" value="8" />
+    <input type="button" id="nine" onclick="data(9)" value="9" />
+    <input type="button" id="nine" onclick="data(10)" value="10" /> -->
+    
+</div>
+<div class="select-rows">
+    <select name="select"  id="s-row" onchange="selectChange(this)">
+        <option id ="opt1"value="5">5</option>
+        <option id ="opt1"value="6">6</option>
+        <option id="opt2"value="2">2</option>
+        <option id="opt3" value="1">1</option>
+        <option id="opt4" value="3">3</option>
+        <option id="opt2"value="10">10</option>
+        <option id="opt3" value="15">15</option>
+        <option id="opt4" value="20">20</option>
+    </select>
+</div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

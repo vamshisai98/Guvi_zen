@@ -1,0 +1,123 @@
+* {
+    margin: 0;
+}
+
+body {
+    padding-top: 30px;
+    background-color: white
+}
+
+.navigation {
+     padding: 3px;
+}
+
+ul {
+    list-style-type: none;
+    flex-direction: row;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 60px;
+}
+
+
+li a {
+    display   : block;
+    color     : #2196F3;
+    text-align: center;
+    padding   : 8px 16px;
+
+    margin         : 2px;
+    text-decoration: none;
+    border-radius  : 4px;
+}
+
+
+li a:active {
+    background: #2196F3;
+    color     : white;
+}
+
+.active {
+    background: #2196F3;
+    color     : white;
+}
+
+.container {
+    margin          : 0 auto;
+    background-color:#e9e9e9;
+    max-width       : 700px;
+    border-radius   : 3px;
+}
+.layer1,.layer2{
+    background: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.card-1,.card-2,.card-3{
+    background: white;
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 0;
+    border: 1px solid #ded8d8;
+    margin: 10px;
+    
+}
+
+.image{
+    height: 130px;
+    background: black;
+    padding: 5px;
+   
+
+}
+.content{
+    /* margin: 5px; */
+    padding: 5px;
+    background: white;
+}
+.price{
+    /* margin: 5px; */
+    padding: 5px;
+    background: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.price-det{
+    /* margin: 5px; */
+    padding: 5px;
+
+}
+
+.cart{
+    /* margin: 5px; */
+    padding: 5px;
+    color: white;
+    background: green;
+    border-radius: 5px;
+    text-align: center;
+
+}
+h2{
+    text-align: center;
+    color: white;
+    padding-top: 50px;
+}
+#foot{
+    color: white;
+    margin-top: 37px;
+    font-size: 10px;
+    text-align: end;
+
+}
+p{
+    margin: 10px 0px;
+}
+
+@media screen and (max-width: 480px) {
+    .layer1,.layer2{
+        flex-direction: column !important;
+    }
+   
+}

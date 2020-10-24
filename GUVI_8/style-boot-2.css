@@ -1,0 +1,25 @@
+.container{
+    background: #8e8e8e30;
+}
+
+.heading{
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    font-size: 10px ;
+    margin: 5px 0;
+}
+.heading-2{
+    border-top: 1px solid;
+    border-bottom:1px solid;
+    margin: 3px 0;
+    padding: 3px 0;
+}
+.heading-3{
+    font-size: 73px !important;
+    text-align: center;
+}
+.sec-2 {
+    margin: 50px 0px;
+    padding: 5px 0px;
+}

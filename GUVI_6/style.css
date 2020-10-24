@@ -1,0 +1,244 @@
+* {
+    margin: 0;
+}
+
+.container {
+    padding: 50px;
+    background:#05050ee0;
+}
+.main-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+}
+.header-image{
+    display: block;
+    border-radius: 100%;
+    background: #00bcd4;
+    width: 100px;
+    text-align: center;
+    border: 2px solid white;
+}
+.fa-child{
+    font-size: 70px !important;
+    padding-top: 15px 0;
+    padding: 10px;
+    margin: 10px;
+}
+
+h5{
+    color: #f44336;
+    font-size: 70px;
+    text-align: center;
+}
+h2{
+    color: white;
+}
+
+.main-1 {
+    display        : flex;
+    flex-direction : row;
+    justify-content: center;
+    margin         : 50px;
+    text-align     : center;
+}
+
+b {
+    color: white;
+}
+
+.container-1 {
+    background : #ff9800;
+    color      : white;
+    flex-grow  : 1;
+    flex-shrink: 1;
+    flex-basis : 0;
+    padding    : 20px
+}
+
+.container-2 {
+    background : #00bcd4;
+    color      : white;
+    flex-grow  : 1;
+    flex-shrink: 1;
+    flex-basis : 0;
+    padding    : 20px;
+}
+
+p {
+    color: #fffdfdc4;
+}
+
+.main-2 {
+    margin        : 50px;
+    display       : flex;
+    flex-direction: row;
+    flex-wrap     : wrap;
+}
+
+.container-3 {
+
+    background: #f44336;
+    flex      : 1 1 0;
+    padding   : 20px;
+    color     : white
+}
+
+.caution {
+    display        : flex;
+    justify-content: space-around;
+    flex           : 1 1 0;
+    background     : #f44336;
+    align-items    : center;
+    padding        : 20px
+}
+
+.fas {
+    color    : white;
+    font-size: 30px;
+    padding  : 5px;
+}
+
+.fa-exclamation-triangle {
+    color: #000000ab;
+}
+
+.fa-hamburger {
+    font-size: 40px;
+    color    : #ff9800;
+}
+
+.fa-cocktail {
+    color      : #f44336;
+    font-size  : 40px;
+    padding-top: 10px;
+}
+
+.fa-desktop  {
+    font-size : 100px;
+    text-align: center;
+    color     : #000000ab;
+}
+.fa-dollar-sign{
+    font-size : 70px;
+    color     : #000000ab;
+    margin: 5px;
+}
+
+.fa-biking {
+    font-size : 80px;
+    text-align: center;
+    color     : #f44336;
+}
+
+
+.content {
+    background: #f44336;
+    width     : 100%;
+    padding   : 16px;
+
+}
+
+.main-3 {
+    display       : flex;
+    flex-direction: row;
+    flex-wrap     : wrap;
+    margin        : 50px
+}
+
+.container-4 {
+    background: #00bcd4;
+    flex      : 1 1 0;
+    padding   : 20px;
+    color     : white
+}
+
+.container-5 {
+    background : #00bcd4;
+    flex       : 1 1 0;
+    padding    : 20px;
+    color      : white;
+    padding-top: 77px;
+}
+
+h1 {
+    margin: 10px;
+}
+
+.main-4,.main-7 {
+    display       : flex;
+    flex-direction: row;
+    margin        : 50px;
+    text-align: center;
+
+}
+
+.container-6 {
+    background: #f44336;
+    flex      : 1 1 0;
+    padding   : 20px;
+    color     : white;
+    
+}
+
+.container-7 {
+    background: #ff9800;
+    flex      : 1 1 0;
+    padding   : 20px;
+    color     : white;
+    
+}
+
+.main-5,
+.main-6 {
+    display       : flex;
+    flex-direction: row;
+    margin        : 50px;
+}
+
+.container-8 {
+    background: #00bcd4;
+    flex      : 5 1 0;
+    padding   : 20px;
+    color     : white;
+}
+
+.image-tv {
+    background: #00bcd4;
+    flex      : 1 1 0;
+    padding   : 20px;
+    color     : white;
+}
+
+.container-9 {
+   background: #ff9800;
+    flex      : 5 1 0;
+    padding   : 20px;
+    color     : white;
+}
+
+.image-bike {
+   background: #ff9800;
+    flex      : 1 1 0;
+    padding   : 44px 20px 20px 20px;
+    color     : white;
+
+}
+
+h3 {
+    font-size: 40px;
+}
+.container-10{
+    background: #00bcd4;
+    flex      : 1 1 0;
+    padding   : 20px;
+    color     : white;
+}
+.container-last{
+    background:#f44336;
+    flex      : 1 1 0;
+    padding   : 20px;
+    color     : white;
+    padding-top: 40px;
+}

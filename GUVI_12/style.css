@@ -1,0 +1,47 @@
+* {
+    margin: 0;
+}
+
+ul {
+    display        : flex;
+    list-style-type: none;
+    padding        : 20px;
+}
+
+li {
+    padding: 20px;
+}
+
+.content {
+    width     : 100%;
+    background: red;
+}
+
+.pagination-table {
+    width     : 100%;
+    background: white;
+}
+
+td,
+th {
+    border    : 1px solid #999;
+    padding   : 0.5rem;
+    text-align: center;
+}
+
+table {
+    width: 100%;
+}
+.page-count{
+    display: flex;
+    padding: 10px;
+    margin: 10px;
+    background: red;
+}
+
+.select-rows{
+    display: flex;
+    align-items: center;
+    background: blue;
+    padding: 10px;
+}

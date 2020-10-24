@@ -1,0 +1,22 @@
+.box{
+    margin: 10px;
+}
+h1{
+    color: #008CBA;
+    
+}
+.btn{
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    margin: 10px;
+    
+}
+.btn:hover {
+    background-color: white;
+    color: black;
+    border: 2px solid #4CAF50;
+}
+#find{
+    margin: 10px;
+}

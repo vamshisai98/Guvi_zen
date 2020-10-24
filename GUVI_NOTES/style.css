@@ -1,0 +1,89 @@
+.rectangle{
+    width: 200px;
+    height: 100px;
+    background: red;
+    border-top-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+   
+}
+
+body{
+  background-image: url('https://picsum.photos/50');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  
+}
+
+.flex-items{
+    display: flex;
+    flex-direction: row-reverse;
+    width: 50%;
+    background: yellow;
+    margin: 10px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.flex1,.flex2,.flex3{
+    width: 200px;
+    height: 100px;
+    margin: 3px;
+    background: blue;
+    color: white;
+    font-size: 40px;
+    
+
+}
+.block{
+    width: 200px;
+    height: 100px;
+    background: red;
+    border-bottom-left-radius: 50px;
+   margin: 10px;
+}
+.block-2{
+    width: 200px;
+    height: 100px;
+    background: yellow;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+   margin: 10px;
+}
+
+.absolute{
+    width: 200px;
+    height: 100px;
+    background: brown;
+    position: absolute;
+    right: 0;
+    top:0;
+   margin: 10px;
+}
+.scroll{
+    width: 100px;
+    height: 100px;
+    overflow: scroll;
+}
+.linear-grad{
+    background: linear-gradient(white, red, blue);
+    width: 300px;
+    height: 200px;
+
+}
+.rotate{
+    width: 300px;
+    height: 200px;
+    background: blue;
+    transform: rotate(45deg);
+
+}
+.transparency{
+    width: 300px;
+    height: 200px;
+    background: #FFEB3B;
+    margin: 10px;
+    opacity: 0.5;
+}
+.transparency:hover{
+    opacity: 1
+}
