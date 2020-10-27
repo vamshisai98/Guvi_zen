@@ -555,15 +555,7 @@ console.log(str1.join(''))
 
 
 
-
-
-
-
-
-
-
-
-//last
+//37tWrite a program to remove all extra blank spaces from given string.
 let srt = 'my  name is   vamshi'; 
 let narr = srt.split(' ')
 console.log(srt)
