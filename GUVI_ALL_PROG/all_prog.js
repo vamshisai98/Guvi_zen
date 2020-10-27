@@ -257,24 +257,573 @@ let str1 = str.split(" ").reverse().join(" ")
 console.log(str1)
 
 //14.Write a program to find first occurrence of a character in a given string.
-let str="abceefds"
-console.log(str[0])
+let str ='aszdsds'
+let str1 = str.split('')
+let a = 's'
+let arr = []
+for(let i=0;i<str1.length;i++){
+    if(str1[i]===a){
+        arr.push(i)
+    }
+}
+
+console.log(arr[0])
 
 //15.Write a program to find first occurrence of a character in a given string.
-let str="abceefds"
-console.log(str[str.length-1])
+let str ='aszdsds'
+let str1 = str.split('')
+let a = 's'
+let arr = []
+for(let i=0;i<str1.length;i++){
+    if(str1[i]===a){
+        arr.push(i)
+    }
+}
+
+console.log(arr[arr.length-1])
 
 //16Write a program to search all occurrences of a character in given string.
 
 let str ='aszdsds'
 let str1 = str.split('')
 let a = 's'
+let arr =[]
 for(let i=0;i<str1.length;i++){
-    if(str1[i]==a){
-        console.log(str.indexOf(str1[i]))
-        break
+    if(str1[i]===a){
+        arr.push(i)
     }
 }
+console.log(arr)
+
+//17Write a program to count occurrences of a character in given string.
+
+let str ='aszdsds'
+let str1 = str.split('')
+let a = 's'
+let count = 0;
+
+for(let i=0;i<str1.length;i++){
+    if(str1[i]===a){
+        count=count+1
+    }
+
+}
+console.log(count)
+
+//18.Write a program to find highest frequency character in a string.
+
+let str ='aszdsds'
+let str1 = str.split('')
+let a = 's'
+let count={}
+str1.forEach((el)=>{
+    count[el]=count[el]+1 || 1
+
+})
+let arr = Object.values(count)
+let max = Math.max(...arr)
+
+let matched = Object.keys(count).filter((key)=>{
+    return count[key]===max
+})
+console.log(matched)
+
+//19.Write a program to find lowest frequency character in a string.
+
+let str ='aszdsds'
+let str1 = str.split('')
+let a = 's'
+let count={}
+str1.forEach((el)=>{
+    count[el]=count[el]+1 || 1
+
+})
+let arr = Object.values(count)
+let min = Math.min(...arr)
+
+let matched = Object.keys(count).filter((key)=>{
+    return count[key]===min
+})
+console.log(matched)
+
+//20.Write a program to count frequency of each character in a string.
+
+
+let str ='aszdsds'
+let str1 = str.split('')
+let a = 's'
+let count={}
+str1.forEach((el)=>{
+    count[el]=count[el]+1 || 1
+
+})
+
+
+let matched = Object.keys(count).filter((key)=>{
+    return count
+})
+console.log(count)
+
+
+//21.Write a program to remove first occurrence of a character from string.
+let str ='aszdsds'
+let str1 = str.split('')
+let a = 's'
+let arr = []
+for(let i=0;i<str1.length;i++){
+    if(str1[i]===a){
+        arr.push(i)
+    }
+}
+let remove_str = str1.slice(arr[0],1)
+console.log(str1)
+
+//22.Write a program to remove last occurrence of a character from string.
+let str ='aszdsds'
+let str1 = str.split('')
+let a = 's'
+let arr = []
+for(let i=0;i<str1.length;i++){
+    if(str1[i]===a){
+        arr.push(i)
+    }
+}
+let remove_str = str1.slice(arr[arr.length-1],1)
+console.log(str1)
+
+//23.Write a program to remove all occurrences of a character from string.
+
+let str ='aszdsds'
+let str1 = str.split('')
+let a = 's'
+let arr = []
+for(let i=0;i<str1.length;i++){
+    if(str1[i]!==a){
+        arr.push(str[i])
+    }
+}
+console.log(arr)
+console.log(str1)
+//24.Write a program to remove all repeated characters from a given string.
+
+let str ='aszdsds'
+let str1 = str.split('')
+let a = 's'
+let arr = [... new Set (str1)]
+console.log(arr)
+
+//25.Write a program to replace first occurrence of a character with another in a string.
+let str ='aszdsds'
+let str1 = str.split('')
+let a = 's'
+let arr = []
+for(let i=0;i<str1.length;i++){
+    if(str1[i]===a){
+        arr.push(i)
+    }
+}
+str1[arr[0]]='xx';
+console.log(str1.join(''))
+
+//26Write a program to replace last occurrence of a character with another in a string.
+
+let str ='aszdsds'
+let str1 = str.split('')
+let a = 's'
+let arr = []
+for(let i=0;i<str1.length;i++){
+    if(str1[i]===a){
+        arr.push(i)
+    }
+}
+str1[arr[arr.length-1]]='xx';
+console.log(str1.join(''))
+
+
+//27.Write a program to replace all occurrences of a character with another in a string.
+
+let str ='aszdsds'
+let str1 = str.split('')
+let a = 's'
+let arr = []
+for(let i=0;i<str1.length;i++){
+    if(str1[i]===a){
+        arr.push(i)
+    }
+}
+for(let j=0;j<arr.length;j++){
+    str1[arr[j]]='abc'
+}
+console.log(str1.join(''))
+
+
+//28.Write a program to find first occurrence of a word in a given string.
+
+let str ='hello world hello'
+let str1 = str.split(' ')
+let a = 'hello'
+let arr = []
+for(let i=0;i<str1.length;i++){
+    if(str1[i]===a){
+        arr.push(i)
+    }
+}
+console.log(str1[arr[0]])
+
+
+//28Write a program to find last occurrence of a word in a given string.
+let str ='hello world hello'
+let str1 = str.split(' ')
+let a = 'hello'
+let arr = []
+for(let i=0;i<str1.length;i++){
+    if(str1[i]===a){
+        arr.push(i)
+    }
+}
+console.log(str1[arr.length-1])
+
+//29Write a program to search all occurrences of a word in given string.
+let str ='hello world hello'
+let str1 = str.split(' ')
+let a = 'hello'
+let arr = []
+for(let i=0;i<str1.length;i++){
+    if(str1[i]===a){
+        arr.push(i)
+    }
+}
+console.log(arr)
+
+//30Write a program to count occurrences of a word in a given string.
+let str ='hello world hello'
+let str1 = str.split(' ')
+let a = 'hello'
+let arr = []
+for(let i=0;i<str1.length;i++){
+    if(str1[i]===a){
+        arr.push(i)
+    }
+}
+console.log(arr.length)
+
+//31Write a program to remove first occurrence of a word from string.
+let str ='hello world hello'
+let str1 = str.split(' ')
+let a = 'hello'
+let arr = []
+for(let i=0;i<str1.length;i++){
+    if(str1[i]===a){
+        arr.push(i)
+    }
+}
+str1.splice(arr[0],1)
+console.log(str1.join(' '))
+
+//32Write a program to remove last occurrence of a word in given string.
+
+let str ='hello world hello'
+let str1 = str.split(' ')
+let a = 'hello'
+let arr = []
+for(let i=0;i<str1.length;i++){
+    if(str1[i]===a){
+        arr.push(i)
+    }
+}
+str1.splice(arr[arr.length-1],1)
+console.log(str1.join(' '))
+
+//33Write a program to remove all occurrence of a word in given string.
+let str ='hello world hello'
+let str1 = str.split(' ')
+let a = 'hello'
+let arr = []
+for(let i=0;i<str1.length;i++){
+    if(str1[i]===a){
+        arr.push(i)
+    }
+}
+for(let j=0;j<arr.length;j++){
+    str1[arr[j]]='good'
+}
+console.log(str1.join(''))
+
+//34Write a program to trim leading white space characters from given string.
+
+
+
+
+
+
+
+
+
+
+
+
+
+//last
+let srt = 'my  name is   vamshi'; 
+let narr = srt.split(' ')
+console.log(srt)
+let arr =[]
+for(let i=0;i<narr.length;i++){
+    if(narr[i]!=""){
+        arr.push(narr[i])
+    }
+}
+console.log(arr.join(' '))
+
+
+
+
+//functions
+//1.Write a program to find cube of any number using function.
+
+function cube(a){
+    return a*a*a
+}
+let res = cube(3)
+
+//2.Write a program to find diameter, circumference and area of circle using functions.
+function circle(r){
+    let dia = 2*3.14*r
+    let circ = 2*3.14*r
+    let area = 3.14*r*r
+
+    let ans = 'diameter is:'+dia +""+'circ is:'+circ+'area is:'+area
+    return ans
+}
+let res = circle(4)
+
+//3.Write a program to find maximum and minimum between two numbers using functions.
+
+function max(num1,num2){
+    if(num1>num2){
+        return 'max:'+num1 +'min:'+num2
+    }
+    else{
+        return 'max:'+num2 +'min:'+num1
+    }
+    
+}
+let res = max(3,4)
+
+//4.Write a program to check whether a number is even or odd using functions.
+
+function prime(x){
+    if(x%2==0){
+        return 'number is even'
+    }
+    else {
+        return 'number is odd'
+    }
+}
+let res = prime(11)
+
+//5.Write a program to check whether a number is prime, Armstrong or perfect number using functions.
+
+
+function prime(n){
+    let flag=true
+    for(let i=2;i<=n;i++){
+        if(n%i==0){
+            flag=false;
+            break
+        }
+
+    }
+    return flag
+
+}
+
+function Armstrong(x){
+    let arr = x.toString().split('')
+      let arr1=  arr.map(x=>Math.pow(x,arr.length))
+     let narr = arr1.reduce(function(a,b){
+        return a+b
+    })
+    // return narr
+    if(narr == x ){
+        return true
+    }
+    else{
+        return false
+    }
+}
+// let res = Armstrong(131)
+
+
+let result= verify(2,100)
+
+console.log(res)
+
+function perfect(x){
+    let count =0;
+    for(let i=0;i<x;i++){
+        if(x%i==0){
+            count+=i
+        }
+    }
+    if(count==x){
+        return true
+    }
+    else{
+        return false
+    }
+}
+let res = perfect(6)
+console.log(res)
+
+//6.Write a program to find all prime numbers between given interval using functions.
+
+function getPrime(x,y){
+    for(let i=x;i<y;i++){
+        let flag = true;
+        for(let a=2;a<i;a++){
+            if(i%a==0 && i!==a){
+                flag= false
+                break
+            }
+        }
+        if(flag==true){
+            console.log(i)
+        }
+    }
+}
+let res = getPrime(0,100)
+console.log(res)
+
+//7.Write a program to print all strong numbers between given interval using functions.
+
+function fact(n){
+    if(n==0||n==1)
+    return 1
+    else{
+        return n*fact(n-1)
+    }
+}
+function strong(n){
+    let arr = n.toString().split('')
+    let narr = arr.map(x=>fact(x))
+    let arr1 = narr.reduce(function(a,b){
+        return a+b
+    },0)
+    if(arr1==n){
+        return true
+    }
+    
+}
+function toCheck(start,end){
+    for(let i=start;i<end;i++){
+        if(strong(i)){
+            console.log(i)
+        }
+       
+    }
+}
+
+let check = toCheck(12,200)
+
+
+//8.Write a program to print all Armstrong numbers between given interval using functions.
+
+
+
+
+function Armstrong(x){
+    let arr = x.toString().split('')
+      let arr1=  arr.map(x=>Math.pow(x,arr.length))
+     let narr = arr1.reduce(function(a,b){
+        return a+b
+    })
+    // return narr
+    if(narr == x ){
+        return true
+    }
+    else{
+        return false
+    }
+}
+// let res = Armstrong(131)
+function verify(start,end){
+    for(let i = start;i<end;i++){
+        if(Armstrong(i)){
+            console.log(i)
+        }
+    }
+}
+let res = verify(1,200) 
+
+//Write a program to print all perfect numbers between given interval using functions.
+
+function perfect(x){
+    let count =0;
+    for(let i=0;i<x;i++){
+        if(x%i==0){
+            count+=i
+        }
+    }
+    if(count==x){
+        return true
+    }
+    else{
+        return false
+    }
+}
+function verify(start,end){
+    for(let i = start;i<end;i++){
+        if(perfect(i)){
+            console.log(i)
+        }
+    }
+}
+let res = verify(1,200) 
+let res = perfect(6)
+console.log(res)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//functions -using recurssions
+
+//1Write a program to find power of any number using recursion.
+
+function power(a,n){
+    if(n===0){
+        return a
+    }
+    else{
+        
+        return a* power(a,n-1)
+    }
+   
+}
+let res = power(3,4)
+
+///2Write a program to print all even or odd numbers in given range using recursion.
+
+
+
 
 
 
