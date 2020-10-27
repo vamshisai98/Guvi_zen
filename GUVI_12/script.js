@@ -50,6 +50,7 @@ request.onload= function(){
     // data(1)
     // data(5)
 data(1)
+// mylist(a)
 }
 
 
@@ -72,9 +73,10 @@ function data(a){
 }
 
 function selectChange(ele){
-data(ele.value)
+data(1)
 mylist(ele.value)
 }
+// console.log(selectChange())
 
 function createMyFun(tagname,mytype,idname,myfun,myvalue){
     let mytag=document.createElement(tagname)
@@ -86,18 +88,39 @@ function createMyFun(tagname,mytype,idname,myfun,myvalue){
     return mytag
 }
 
+
 function mylist(x){
 
     let pagecount=document.getElementById('page-count')
+    
     pagecount.innerHTML=""
+    let first_btn=createMyFun('input','button','btn-first','data(1)','first')
+    pagecount.appendChild(first_btn)
     
     for(i=1;i<=Math.ceil(100/x);i++){
     
         let btn= createMyFun('input','button',`btn-${i}`,`data(${i})`,i)
-        pagecount.append(btn)
-        
+        pagecount.append(btn)        
     }
+    let lengthpage = pagecount.querySelectorAll('[type=button]').length
+    let last_btn=createMyFun('input','button','btn-last',`data(${lengthpage-1})`,'last')
+    
+    pagecount.appendChild(last_btn)
+
+    
+ 
 }
-mylist(5)
+
+function next(ele){
+let d =data(ele.type)
+// console.log(d)
+}
+// console.log(next())
+
+ 
+mylist(2)
+
+
+
 
 

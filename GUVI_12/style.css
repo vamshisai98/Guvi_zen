@@ -33,15 +33,31 @@ table {
     width: 100%;
 }
 .page-count{
-    display: flex;
     padding: 10px;
     margin: 10px;
-    background: red;
+    /* background: red; */
 }
 
 .select-rows{
     display: flex;
     align-items: center;
-    background: blue;
+    background: #2196f3;
     padding: 10px;
+    color: white;
+
+}
+select{
+    margin: 20px;
+}
+input[type=button]{
+    background: #3f51b5;
+    padding: 2px;
+    margin: 2px;
+    border-radius: 5px;
+    width: 30px;
+    color: white;
+}
+
+input:focus {
+    background-color: red;
 }
