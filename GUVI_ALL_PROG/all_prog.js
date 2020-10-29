@@ -802,7 +802,7 @@ console.log(res)
 
 function power(a,n){
     if(n===0){
-        return a
+        return 1
     }
     else{
         
@@ -812,7 +812,89 @@ function power(a,n){
 }
 let res = power(3,4)
 
-///2Write a program to print all even or odd numbers in given range using recursion.
+//2.Write a program to print all natural numbers between 1 to n using recursion.
+
+function natural(n){
+    if(n==1){
+        return 1
+    }
+    else{
+        console.log(n )
+        return natural(n-1)
+    }
+}
+console.log(natural(5))
+
+//3.Write a program to print all even or odd numbers in given range using recursion.
+function printOdd(start,end){
+    if(start>end){
+        return 
+    }
+    else{
+        if(start%2!==0){
+            console.log(start)
+        }
+       
+        return printOdd(start+1,end)
+    }
+      
+  }
+  let res = printOdd(0,10)
+
+
+
+function printEven(start,end){
+  if(start>end){
+      return 
+  }
+  else{
+      console.log(start)
+      return printEven(start+2,end)
+  }
+    
+}
+let res = printEven(0,10)
+
+//4.Write a program to find sum of all natural numbers between 1 to n using recursion.
+function sumAll(n){
+    if(n!==0){
+        return n + sumAll(n-1)
+    }
+    else{
+        return n
+    }
+}
+let res = sumAll(20)
+
+
+//5Write a program to find sum of all even or odd numbers in given range using recursion.
+
+function evenSum(n,m){
+    if(n>m){
+        return 0
+    }
+    else{
+        return n+evenSum(n+2,m)
+    }
+}
+ 
+let res=evenSum(2,100)
+
+function oddSum(n,m){
+    if(n==1){
+        return n
+    }
+    else{
+        if(n>1){
+            return n+oddSum(n+2,m)
+        }
+     
+    }
+}
+ 
+let res=oddSum(2,100)
+
+
 
 
 
