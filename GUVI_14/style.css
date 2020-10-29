@@ -1,0 +1,23 @@
+.container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+img{
+  height: 150px !important;
+}
+.card-header{
+    font-size: 14px;
+    border: none;
+}
+
+@media screen and (max-width: 800px) {
+    .container{
+        flex-direction: column !important;
+    }
+    .card{
+        max-width: none !important;
+    }
+   
+}
