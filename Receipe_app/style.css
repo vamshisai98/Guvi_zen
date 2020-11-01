@@ -1,0 +1,63 @@
+*{
+    margin:0
+}
+body{
+  background:#dc3545
+}
+.searchbtn {
+    background:white;
+}
+.formcls{
+    justify-content: center;
+    color: white;
+}
+.display-1{
+    font-size: 85px;
+}
+.container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+.card .card-body{
+    font-size: 12px;
+    padding: 10px;
+}
+.buttn{
+    background: #ff000096;
+    color: #ffffff;
+    padding: 3px;
+    width: 100%;
+}
+.mdbtn{
+    background: #ff000096;
+    color: #ffffff;
+    padding: 3px;
+    width: 100%;
+}
+.display-2{
+    font-size: 15px;
+}
+.vitamin{
+    margin: 3px;
+    margin-top: 5px;
+    padding: 0px 2px;
+}
+.error{
+    margin: 96px;
+    margin-top: 10px;
+    color: #ffffff73;
+}
+
+@media only screen and (max-width: 600px) {
+    .display-1{
+        font-size: 70px;
+
+    }
+    .formcls{
+        flex-direction: column;
+    }
+    
+}
