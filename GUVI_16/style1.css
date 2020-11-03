@@ -1,0 +1,14 @@
+.answer{
+    background: white !important;
+    color: black;
+}
+.answer:hover{
+color: red;
+}
+.box{
+    padding-top: 100px;
+}
+.questionCount{
+    display: flex;
+    justify-content: space-between;
+}
