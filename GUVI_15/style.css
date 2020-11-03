@@ -1,0 +1,10 @@
+.card-img-top{
+    height: 170px;
+    width: 100%;
+}
+.row{
+    justify-content: center;
+}
+.close{
+    font-size: 20px;
+}
