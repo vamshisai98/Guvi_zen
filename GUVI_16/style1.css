@@ -1,5 +1,5 @@
 .answer{
-    background: white !important;
+    background: white ;
     color: black;
 }
 .answer:hover{
@@ -11,4 +11,8 @@ color: red;
 .questionCount{
     display: flex;
     justify-content: space-between;
+}
+.score,.finishQuestion{
+    display: flex;
+    flex-direction: row-reverse;
 }
