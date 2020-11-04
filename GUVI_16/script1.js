@@ -100,6 +100,7 @@ async function getData() {
         finishBtn.innerText = "finish"
         finishBtn.setAttribute('href','end.html')
         finishBtn.setAttribute('role','button')
+        finishBtn.setAttribute('onclick','finishTest()')
         box.append(finishQuestion)
         finishQuestion.append(finishBtn)
 
@@ -137,6 +138,10 @@ function correctAnswer(choice1,answerBox){
     scoreBoard.innerText = `Score: ${s=s+10}`
 }   
 
+function finishTest(){
+    let scoreBoard = document.getElementById('score')
+    localStorage.setItem("score", scoreBoard.innerText);
 
+}
 
 getData()
