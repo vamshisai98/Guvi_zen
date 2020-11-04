@@ -1,23 +1,28 @@
-.result{
+.result {
     padding-top: 130px;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
 }
-form{
+
+form {
     display: flex;
     justify-content: center;
     flex-direction: column;
 }
-.finalScore{
-text-align: center;
+
+.finalScore {
+    text-align: center;
 }
-.usernameBox,.save{
+
+.usernameBox,
+.save {
     display: flex;
     justify-content: center;
     margin: 3px;
-    border-radius: 5px  ;
+    border-radius: 5px;
 }
-.container{
+
+.container {
     max-width: 500px;
 }

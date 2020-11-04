@@ -20,7 +20,7 @@ playBtn.setAttribute('role','button')
 playBtn.innerText="Play"
 
 let highScoreBtn = creatingElement('a','btn btn-primary btn-lg btn-block highScores ','highScores')
-highScoreBtn.setAttribute('href','highScores.html')
+highScoreBtn.setAttribute('href','highscores.html')
 highScoreBtn.setAttribute('role','button')
 highScoreBtn.innerText="High Scores"
 

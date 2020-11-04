@@ -5,7 +5,6 @@ function creatingElement(myTagName, myClass, myId) {
     return ele
 }
 let score = localStorage.getItem('score')
-console.log(score)
 
 let container = creatingElement('div', 'container', 'container')
 document.body.append(container)
@@ -24,6 +23,7 @@ input.setAttribute('type', 'text')
 input.setAttribute('placeholder', 'Username')
 input.setAttribute('aria-label', 'Username')
 input.setAttribute('aria-describedby', 'basic-addon1')
+input.setAttribute('onkeyup', 'saveEnable()')
 usenameBox.append(input)
 
 let save = creatingElement('div', 'save', 'save')
@@ -32,6 +32,7 @@ let buttonSave = creatingElement('button', 'btn btn-primary saveBtn', 'saveBtn')
 buttonSave.type = "button"
 buttonSave.innerText = "Save"
 buttonSave.setAttribute('onclick', 'saveScore()')
+buttonSave.setAttribute('disabled', 'true')
 save.append(buttonSave)
 
 let playAgainBtn = creatingElement('a', 'btn btn-primary btn-lg btn-block playAgain', 'playAgain')
@@ -52,6 +53,9 @@ form.append(usenameBox, save)
 function saveScore() {
     let saveScore = document.getElementById('finalScore')
     let userInput = document.getElementById('userInput')
-    console.log(localStorage.setItem('username', userInput.value))
-    console.log(localStorage.setItem('score', saveScore.innerText))
+}
+
+function saveEnable() {
+    let savebtn = document.getElementById('saveBtn')
+    savebtn.disabled = false
 }
