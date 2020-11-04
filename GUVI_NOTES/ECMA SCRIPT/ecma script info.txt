@@ -1,0 +1,6 @@
+https://kangax.github.io/compat-table/es6/
+
+
+https://medium.com/recraftrelic/es5-vs-es6-with-example-code-9901fa0136fc
+https://engineering.carsguide.com.au/es5-vs-es6-syntax-6c8350fa6998
+http://es6-features.org/#Constants
