@@ -1,40 +1,88 @@
-var PetsAvailable = /** @class */ (function () {
-    function PetsAvailable() {
+// type pname = 'Dog'|'Bird'|'Cat'|'Fish'
+var PetAvailable = /** @class */ (function () {
+    function PetAvailable() {
         this.pets = [];
     }
-    PetsAvailable.prototype.insertPet = function (petinfo) {
-        this.pets.push(petinfo);
+    PetAvailable.prototype.insertPet = function (petInfo) {
+        this.pets.push(petInfo);
     };
-    PetsAvailable.prototype.listOfPets = function () {
+    PetAvailable.prototype.petsDetail = function () {
         return this.pets;
     };
-    return PetsAvailable;
+    PetAvailable.prototype.changePetCount = function (petType, count) {
+        this.pets.forEach(function (ele) {
+            if (ele.petType == petType) {
+                ele.quantity = count;
+            }
+        });
+    };
+    return PetAvailable;
 }());
-var RequestPets = /** @class */ (function () {
-    function RequestPets() {
-        this.requestpets = [];
+var PetRequest = /** @class */ (function () {
+    function PetRequest() {
+        this.request = [];
     }
-    RequestPets.prototype.checkPets = function (reqPets) {
-        this.requestpets.push(reqPets);
+    PetRequest.prototype.createPetRequest = function (petInfo) {
+        this.request.push(petInfo);
     };
-    RequestPets.prototype.petsQueue = function () {
-        return (this.requestpets.forEach(function (x) {
-            console.log(x.name);
-        }));
+    PetRequest.prototype.getPetRequest = function () {
+        return this.request;
     };
-    return RequestPets;
+    PetRequest.prototype.petRequestStatus = function (petObj) {
+        var _this = this;
+        var checkAvail = new PetAvailable();
+        var len = 5;
+        if (this.request.length < len) {
+            len = this.request.length;
+        }
+        var petsData = petObj.petsDetail();
+        var _loop_1 = function (i) {
+            petsData.forEach(function (ele) {
+                if (ele.petType.toLowerCase() == _this.request[i].petType.toLowerCase()) {
+                    if (ele.quantity > _this.request[i].quantity) {
+                        console.log("Request for " + _this.request[i].quantity + " " + ele.petType + " is fulfilled");
+                        var petAvailCount = ele.quantity - _this.request[i].quantity;
+                        petObj.changePetCount(ele.petType, petAvailCount);
+                    }
+                    else {
+                        console.log("Request for " + _this.request[i].quantity + " " + ele.petType + " is not fulfilled because " + ele.quantity + " " + ele.petType + " are left in the shop");
+                    }
+                }
+            });
+        };
+        for (var i = 0; i < len; i++) {
+            _loop_1(i);
+        }
+    };
+    return PetRequest;
 }());
-var petsNew = new PetsAvailable();
-petsNew.insertPet({ name: 'Dog', noOfPets: 10, character: 'friendly', id: 1 });
-petsNew.insertPet({ name: 'Cat', noOfPets: 10, character: 'friendly', id: 2 });
-petsNew.insertPet({ name: 'Fish', noOfPets: 10, character: 'friendly', id: 3 });
-petsNew.insertPet({ name: 'Bird', noOfPets: 10, character: 'friendly', id: 4 });
-console.log(petsNew.listOfPets());
-var requestPetAvailablity = new RequestPets();
-requestPetAvailablity.checkPets({ name: 'Dog', reqQuantity: 3, id: 1 });
-requestPetAvailablity.checkPets({ name: 'Cat', reqQuantity: 14, id: 2 });
-requestPetAvailablity.checkPets({ name: 'Bird', reqQuantity: 3, id: 4 });
-requestPetAvailablity.checkPets({ name: 'Cat', reqQuantity: 14, id: 2 });
-requestPetAvailablity.checkPets({ name: 'Fish', reqQuantity: 3, id: 3 });
-requestPetAvailablity.checkPets({ name: 'Cat', reqQuantity: 14, id: 2 });
-console.log(requestPetAvailablity.petsQueue());
+var petAvailable = new PetAvailable();
+petAvailable.insertPet({
+    petType: 'Cats',
+    quantity: 20
+});
+petAvailable.insertPet({
+    petType: 'Dogs',
+    quantity: 10
+});
+console.log(petAvailable.petsDetail());
+var requestPet = new PetRequest();
+requestPet.createPetRequest({
+    petType: 'Cats',
+    quantity: 5
+});
+requestPet.createPetRequest({
+    petType: 'Cats',
+    quantity: 3
+});
+requestPet.createPetRequest({
+    petType: 'Cats',
+    quantity: 1
+});
+requestPet.createPetRequest({
+    petType: 'Dogs',
+    quantity: 25
+});
+console.log(requestPet.getPetRequest());
+requestPet.petRequestStatus(petAvailable);
+console.log(petAvailable.petsDetail());

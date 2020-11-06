@@ -39,6 +39,16 @@ class RequestPets {
             console.log(x.name) 
         }))
     }
+
+    petsStatus(){
+        for(let i=0;i<5;i++){
+            return this.requestpets.forEach((x)=>{
+                return x.name
+            })
+        }
+     
+
+    }
   
   
 }
@@ -60,4 +70,7 @@ requestPetAvailablity.checkPets({name:'Bird',reqQuantity:3,id:4})
 requestPetAvailablity.checkPets({name:'Cat',reqQuantity:14,id:2})
 requestPetAvailablity.checkPets({name:'Fish',reqQuantity:3,id:3})
 requestPetAvailablity.checkPets({name:'Cat',reqQuantity:14,id:2})
+requestPetAvailablity.checkPets({name:'Fish',reqQuantity:3,id:3})
+
 console.log(requestPetAvailablity.petsQueue())
+console.log(requestPetAvailablity.petsStatus())
