@@ -53,7 +53,6 @@ var RequestPets = /** @class */ (function () {
             for (var i = 0; i < petsLeft.length; i++) {
                 if (x.name == petsLeft[i].name) {
                     if (x.count < 50) {
-                        //    if(petsLeft[i].count>0)
                         petsLeft[i].count = petsLeft[i].count - x.count;
                     }
                     else {
@@ -83,3 +82,4 @@ request.queryPets({ name: "Cat", count: 3 });
 console.log(request.listOfQueries());
 console.log(request.filterFirstFive(petsAvail));
 console.log(request.finalCount(petsAvail));
+console.log(petsAvail.listOfPets());

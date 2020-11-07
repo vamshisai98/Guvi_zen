@@ -98,3 +98,5 @@ console.log(request.listOfQueries());
 
 console.log(request.filterFirstFive(petsAvail));
 console.log(request.finalCount(petsAvail))
+
+console.log(petsAvail.listOfPets());
