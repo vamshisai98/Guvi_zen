@@ -1,88 +1,85 @@
-// type pname = 'Dog'|'Bird'|'Cat'|'Fish'
-var PetAvailable = /** @class */ (function () {
-    function PetAvailable() {
+var __spreadArrays = (this && this.__spreadArrays) || function () {
+    for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
+    for (var r = Array(s), k = 0, i = 0; i < il; i++)
+        for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++)
+            r[k] = a[j];
+    return r;
+};
+var PetsInfo = /** @class */ (function () {
+    function PetsInfo() {
         this.pets = [];
     }
-    PetAvailable.prototype.insertPet = function (petInfo) {
+    PetsInfo.prototype.insertPet = function (petInfo) {
         this.pets.push(petInfo);
     };
-    PetAvailable.prototype.petsDetail = function () {
+    PetsInfo.prototype.listOfPets = function () {
         return this.pets;
     };
-    PetAvailable.prototype.changePetCount = function (petType, count) {
-        this.pets.forEach(function (ele) {
-            if (ele.petType == petType) {
-                ele.quantity = count;
+    return PetsInfo;
+}());
+var RequestPets = /** @class */ (function () {
+    function RequestPets() {
+        this.requestPets = [];
+        this.filterFive = [];
+    }
+    RequestPets.prototype.queryPets = function (reqPets) {
+        this.requestPets.push(reqPets);
+    };
+    RequestPets.prototype.listOfQueries = function () {
+        return this.requestPets;
+    };
+    RequestPets.prototype.filterFirstFive = function (petsAvail) {
+        var petData = petsAvail.listOfPets();
+        for (var i = 0; i < 5; i++) {
+            this.filterFive.push(this.requestPets[i]);
+        }
+        this.filterFive.forEach(function (ele) {
+            for (var i = 0; i < petData.length; i++) {
+                if (ele.name == petData[i].name) {
+                    if (ele.count < petData[i].count) {
+                        console.log("Request successful for " + ele.name + " of " + ele.count);
+                    }
+                    else {
+                        console.log("pet " + ele.name + " is not available as only " + petData[i].count + " left");
+                    }
+                }
             }
         });
     };
-    return PetAvailable;
-}());
-var PetRequest = /** @class */ (function () {
-    function PetRequest() {
-        this.request = [];
-    }
-    PetRequest.prototype.createPetRequest = function (petInfo) {
-        this.request.push(petInfo);
-    };
-    PetRequest.prototype.getPetRequest = function () {
-        return this.request;
-    };
-    PetRequest.prototype.petRequestStatus = function (petObj) {
-        var _this = this;
-        var checkAvail = new PetAvailable();
-        var len = 5;
-        if (this.request.length < len) {
-            len = this.request.length;
-        }
-        var petsData = petObj.petsDetail();
-        var _loop_1 = function (i) {
-            petsData.forEach(function (ele) {
-                if (ele.petType.toLowerCase() == _this.request[i].petType.toLowerCase()) {
-                    if (ele.quantity > _this.request[i].quantity) {
-                        console.log("Request for " + _this.request[i].quantity + " " + ele.petType + " is fulfilled");
-                        var petAvailCount = ele.quantity - _this.request[i].quantity;
-                        petObj.changePetCount(ele.petType, petAvailCount);
+    RequestPets.prototype.finalCount = function (petsAvail) {
+        var petsLeft = petsAvail.listOfPets();
+        var arr = __spreadArrays(this.filterFive);
+        arr.forEach(function (x) {
+            for (var i = 0; i < petsLeft.length; i++) {
+                if (x.name == petsLeft[i].name) {
+                    if (x.count < 50) {
+                        //    if(petsLeft[i].count>0)
+                        petsLeft[i].count = petsLeft[i].count - x.count;
                     }
                     else {
-                        console.log("Request for " + _this.request[i].quantity + " " + ele.petType + " is not fulfilled because " + ele.quantity + " " + ele.petType + " are left in the shop");
+                        petsLeft[i].count = 0;
                     }
                 }
-            });
-        };
-        for (var i = 0; i < len; i++) {
-            _loop_1(i);
-        }
+            }
+        });
+        return arr;
     };
-    return PetRequest;
+    return RequestPets;
 }());
-var petAvailable = new PetAvailable();
-petAvailable.insertPet({
-    petType: 'Cats',
-    quantity: 20
-});
-petAvailable.insertPet({
-    petType: 'Dogs',
-    quantity: 10
-});
-console.log(petAvailable.petsDetail());
-var requestPet = new PetRequest();
-requestPet.createPetRequest({
-    petType: 'Cats',
-    quantity: 5
-});
-requestPet.createPetRequest({
-    petType: 'Cats',
-    quantity: 3
-});
-requestPet.createPetRequest({
-    petType: 'Cats',
-    quantity: 1
-});
-requestPet.createPetRequest({
-    petType: 'Dogs',
-    quantity: 25
-});
-console.log(requestPet.getPetRequest());
-requestPet.petRequestStatus(petAvailable);
-console.log(petAvailable.petsDetail());
+var petsAvail = new PetsInfo();
+petsAvail.insertPet({ name: "Dog", count: 30 });
+petsAvail.insertPet({ name: "Cat", count: 20 });
+petsAvail.insertPet({ name: "Bird", count: 20 });
+petsAvail.insertPet({ name: "Fish", count: 40 });
+console.log(petsAvail.listOfPets());
+var request = new RequestPets();
+request.queryPets({ name: "Dog", count: 5 });
+request.queryPets({ name: "Fish", count: 5 });
+request.queryPets({ name: "Cat", count: 5 });
+request.queryPets({ name: "Dog", count: 2 });
+request.queryPets({ name: "Bird", count: 60 });
+request.queryPets({ name: "Dog", count: 2 });
+request.queryPets({ name: "Cat", count: 3 });
+console.log(request.listOfQueries());
+console.log(request.filterFirstFive(petsAvail));
+console.log(request.finalCount(petsAvail));

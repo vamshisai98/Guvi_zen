@@ -1,76 +1,100 @@
-type pname = 'Dog'|'Bird'|'Cat'|'Fish'
+type pname = "Dog" | "Bird" | "Cat" | "Fish";
 
-interface PetsInfo{
-    name?:pname
-    noOfPets?:number
-    character?:string
-    reqQuantity?:number
-    id?:number
-
-    
+interface PetDetails {
+  name: pname;
+  count: number;
 }
 
-class PetsAvailable{
-    pets:Array<PetsInfo>
+class PetsInfo {
+  pets: PetDetails[];
 
-    constructor( ){
-      this.pets=[]
-    }
+  constructor() {
+    this.pets = [];
+  }
 
-    insertPet(petinfo:PetsInfo ){
-       this.pets.push(petinfo)
-    
-    }
-    listOfPets(){
-        return this.pets
-    }
+  insertPet(petInfo: PetDetails) {
+    this.pets.push(petInfo);
+  }
+  listOfPets() {
+    return this.pets;
+  }
 }
 
 class RequestPets {
-    requestpets:Array<PetsInfo>
-    constructor(){
-        this.requestpets=[]
-    }
-    checkPets(reqPets:PetsInfo){
-        this.requestpets.push(reqPets)
-    }
-    petsQueue(){
-        return (this.requestpets.forEach((x)=>{
-            console.log(x.name) 
-        }))
-    }
+  requestPets: PetDetails[];
+  filterFive: PetDetails[];
 
-    petsStatus(){
-        for(let i=0;i<5;i++){
-            return this.requestpets.forEach((x)=>{
-                return x.name
-            })
+  constructor() {
+    this.requestPets = [];
+    this.filterFive = [];
+    
+  }
+  queryPets(reqPets: PetDetails) {
+    this.requestPets.push(reqPets);
+  }
+  listOfQueries() {
+    return this.requestPets;
+  }
+
+  filterFirstFive(petsAvail) {
+    let petData = petsAvail.listOfPets();
+    for (let i = 0; i < 5; i++) {
+      this.filterFive.push(this.requestPets[i]);
+    }
+  
+    this.filterFive.forEach((ele) => {
+        for(let i=0;i<petData.length;i++){
+            if (ele.name == petData[i].name) {
+                if (ele.count < petData[i].count) {
+                  console.log(`Request successful for ${ele.name} of ${ele.count}`);
+                }else{
+                    console.log(`pet ${ele.name} is not available as only ${petData[i].count} left`)
+                }
+              }
         }
-     
+      
+    });
+  
+  }
 
-    }
-  
-  
+  finalCount(petsAvail){
+    let petsLeft = petsAvail.listOfPets();
+    let arr = [...this.filterFive]
+     arr.forEach((x)=>{
+       
+            for(let i =0;i<petsLeft.length;i++){
+                if(x.name==petsLeft[i].name ){
+                    if(x.count<50){
+                    petsLeft[i].count = petsLeft[i].count - x.count
+                }
+                else{
+                    petsLeft[i].count =0
+                }              
+            }
+         }
+    })
+    return arr
+  }
 }
 
-let petsNew = new PetsAvailable()
+let petsAvail = new PetsInfo();
+petsAvail.insertPet({ name: "Dog", count: 30 });
+petsAvail.insertPet({ name: "Cat", count: 20 });
+petsAvail.insertPet({ name: "Bird", count: 20 });
+petsAvail.insertPet({ name: "Fish", count: 40 });
 
-petsNew.insertPet({name:'Dog',noOfPets:10,character:'friendly',id:1})
-petsNew.insertPet({name:'Cat',noOfPets:10,character:'friendly',id:2})
-petsNew.insertPet({name:'Fish',noOfPets:10,character:'friendly',id:3})
-petsNew.insertPet({name:'Bird',noOfPets:10,character:'friendly',id:4})
+console.log(petsAvail.listOfPets());
 
-console.log(petsNew.listOfPets())
+let request = new RequestPets();
+request.queryPets({ name: "Dog", count: 5 });
+request.queryPets({ name: "Fish", count: 5 });
+request.queryPets({ name: "Cat", count: 5 });
+request.queryPets({ name: "Dog", count: 2 });
+request.queryPets({ name: "Bird", count: 60 });
+request.queryPets({ name: "Dog", count: 2 });
+request.queryPets({ name: "Cat", count: 3 });
 
+console.log(request.listOfQueries());
 
-let requestPetAvailablity = new RequestPets()
-requestPetAvailablity.checkPets({name:'Dog',reqQuantity:3,id:1})
-requestPetAvailablity.checkPets({name:'Cat',reqQuantity:14,id:2})
-requestPetAvailablity.checkPets({name:'Bird',reqQuantity:3,id:4})
-requestPetAvailablity.checkPets({name:'Cat',reqQuantity:14,id:2})
-requestPetAvailablity.checkPets({name:'Fish',reqQuantity:3,id:3})
-requestPetAvailablity.checkPets({name:'Cat',reqQuantity:14,id:2})
-requestPetAvailablity.checkPets({name:'Fish',reqQuantity:3,id:3})
-
-console.log(requestPetAvailablity.petsQueue())
-console.log(requestPetAvailablity.petsStatus())
+console.log(request.filterFirstFive(petsAvail));
+console.log(request.finalCount(petsAvail))
