@@ -72,14 +72,122 @@
 //     }
 
 // }
+interface CustomerDetails {
+  ID: number;
+  name: string;
+  discount: number;
+}
+interface InvoiceDetails {
+  invoiceID: number;
+  amount: number;
+  customer?: CustomerDetails;
+}
 
-// // let customerDetails = new Customer({'','',''})
+class Customer {
+  ID: number;
+  name: string;
+  discount: number;
+  constructor(custDetails: CustomerDetails) {
+    this.ID = custDetails.ID;
+    this.name = custDetails.name;
+    this.discount = custDetails.discount;
+  }
+
+  getID() {
+    return this.ID;
+  }
+  getName() {
+    return this.name;
+  }
+  getDiscount() {
+    return this.discount;
+  }
+  setDiscount(discount: number) {
+    this.discount = discount;
+  }
+  toString() {
+    return `Customer name is ${this.name} and Id is ${this.ID}`;
+  }
+}
+
+class CustomerInvoice extends Customer {
+  invoiceID: number;
+  customer: CustomerDetails;
+  amount: number;
+
+  constructor(custDet: CustomerDetails, invoiceDet: InvoiceDetails) {
+    super(custDet);
+    this.invoiceID = invoiceDet.invoiceID;
+    this.customer = invoiceDet.customer;
+    this.amount = invoiceDet.amount;
+  }
+
+  getInoviceID() {
+    return this.invoiceID;
+  }
+  getCustomer() {
+    return this.customer;
+  }
+  setCustomer(customers: CustomerDetails) {
+    let customer: CustomerDetails = {
+      ID: customers.ID,
+      name: customers.name,
+      discount: customers.discount,
+    };
+    return customer;
+  }
+  getAmount() {
+    return `Amount available is ${this.amount}`;
+  }
+  setAmount(amount: number) {
+    this.amount = amount;
+  }
+  getCutomerName() {
+    return `Customer Name is ${this.name}`;
+  }
+  getAmountAfterDiscount() {
+    let afterDiscount = this.amount - (this.amount * (this.discount / 100));
+    return afterDiscount;
+  }
+}
+
+let customerInfo = new CustomerInvoice(
+  {
+    ID: 2,
+    name: "vamshi",
+    discount: 3,
+  },
+  {
+    invoiceID: 32,
+    amount: 30000,
+    customer: {
+      ID: 2,
+      name: "vamshi",
+      discount: 3,
+    },
+  }
+);
+console.log("parent");
+console.log(customerInfo.getID());
+console.log(customerInfo.getName());
+console.log(customerInfo.getDiscount());
+console.log(customerInfo.setDiscount(25));
+console.log(customerInfo.toString());
+console.log("child");
+console.log(customerInfo.getInoviceID());
+console.log(customerInfo.getCustomer());
+console.log(customerInfo.setCustomer({ ID: 45, name: "Anirudh", discount: 5 }));
+console.log(customerInfo.getAmount())
+console.log(customerInfo.setAmount(30000))
+console.log(customerInfo.getCutomerName())
+console.log(customerInfo.getAmountAfterDiscount())
+
 
 function showTable() {
-    console.log('working')
-    let table = document.getElementById("showTable");
-    table.style.display = "block"
-    table.innerHTML = `  <table class="table" id="table">
+  console.log("working");
+  let table = document.getElementById("showTable");
+  table.style.display = "block";
+  table.innerHTML = `  <table class="table" id="table">
 <thead>
   <tr>
     <th scope="col">ID</th>
@@ -117,13 +225,13 @@ function showTable() {
 
 <button type="button" class="btn btn-danger" id="closeBtn" onclick="closeTable()">Close</button>
 `;
-    let addcustomer = document.getElementById('addcustomer')
-    addcustomer.style.pointerEvents = "none"
+  let addcustomer = document.getElementById("addcustomer");
+  addcustomer.style.pointerEvents = "none";
 }
 
 function closeTable() {
-    let table = document.getElementById('showTable')
-    table.style.display = 'none'
-    let addcustomer = document.getElementById('addcustomer')
-    addcustomer.style.pointerEvents = "fill"
+  let table = document.getElementById("showTable");
+  table.style.display = "none";
+  let addcustomer = document.getElementById("addcustomer");
+  addcustomer.style.pointerEvents = "fill";
 }
