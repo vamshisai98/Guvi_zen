@@ -14,7 +14,7 @@ chunk([1, 2, 3, 4, 5], 2)
 
 //2.find
 
-let users = [
+let users: = [
     { 'user': 'barney',  'age': 36, 'active': true },
     { 'user': 'fred',    'age': 40, 'active': true },
     { 'user': 'pebbles', 'age': 1,  'active': true }
