@@ -58,7 +58,7 @@ var CustomerInvoice = /** @class */ (function (_super) {
         return customer;
     };
     CustomerInvoice.prototype.getAmount = function () {
-        return "Amount available is " + this.amount;
+        return this.amount;
     };
     CustomerInvoice.prototype.setAmount = function (amount) {
         this.amount = amount;
@@ -100,7 +100,7 @@ var CusAccounts = /** @class */ (function (_super) {
         return this.customer.name;
     };
     CusAccounts.prototype.setDeposit = function (amount) {
-        this.balance += amount;
+        return this.balance += amount;
     };
     CusAccounts.prototype.setWithdraw = function (amount) {
         if (this.balance >= amount) {
@@ -151,11 +151,16 @@ function closeTable() {
 function addCustomer() {
     var cusID = document.getElementById("inputId").value;
     var cusName = document.getElementById("inputName").value;
-    var cusDisc = document.getElementById("inputDiscount").value;
-    var cusAmnt = document.getElementById("inputTotalAmnt").value;
-    var invoID = document.getElementById("inputInvoiceID").value;
+    var cusDisc = document.getElementById("inputDiscount")
+        .value;
+    var cusAmnt = document.getElementById("inputTotalAmnt")
+        .value;
+    var invoID = document.getElementById("inputInvoiceID")
+        .value;
     var accID = document.getElementById("inputAccID").value;
     var bal = document.getElementById("inputBalance").value;
+    var deposit = document.getElementById("inputBalance").value;
+    var withdraw = document.getElementById("inputWithdraw").value;
     console.log("button is working");
     console.log(cusID);
     var customerInfo = new CustomerInvoice({
@@ -202,14 +207,15 @@ function addCustomer() {
     console.log(customerAccounts.getAccId());
     console.log(customerAccounts.getCustomer());
     console.log(customerAccounts.getBalance());
-    console.log(customerAccounts.setBalance(50000));
+    // console.log(customerAccounts.setBalance(50000));
     console.log(customerAccounts.accString());
     console.log(customerAccounts.getCustomerName());
-    console.log(customerAccounts.setDeposit(2000));
+    // console.log(customerAccounts.setDeposit(2000));
     console.log(customerAccounts.getBalance());
-    console.log(customerAccounts.setWithdraw(500));
-    var tbody = document.getElementById('tbody');
-    var tr = document.createElement('tr');
-    tr.innerHTML = "<td>" + customerAccounts.getAccId() + "</td> <td>" + customerAccounts.getAccId() + "</td>";
+    // console.log(customerAccounts.setWithdraw(500));
+    var tbody = document.getElementById("tbody");
+    var tr = document.createElement("tr");
+    tr.innerHTML = "<td>" + customerAccounts.getID() + "</td> <td>" + customerAccounts.getAccId() + "</td>  \n  <td>" + customerInfo.getInoviceID() + "</td>\n  <td>" + customerInfo.getName() + "</td>\n  <td>" + customerInfo.getDiscount() + "</td>\n  <td>" + customerInfo.getAmount() + "</td>\n  <td>" + customerInfo.getAmountAfterDiscount() + "</td>\n  <td>" + customerAccounts.getBalance() + "</td>\n  <td>" + customerAccounts.setDeposit(+deposit) + "</td>\n  <td>" + customerAccounts.setDeposit(+withdraw) + "</td>\n  <td>" + customerAccounts.getBalance() + "</td>";
     tbody.append(tr);
+    showTable();
 }
