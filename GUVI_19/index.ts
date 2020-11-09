@@ -1,77 +1,3 @@
-// interface CustomerData{
-//     id:number
-//     name:string
-//     discount?:number
-
-// }
-
-// class Customer{
-//     customerId:number
-//     customerName:string
-//     customerDiscount?:number
-
-//     constructor(customer:CustomerData){
-//         this.customerName = customer.name
-//         this.customerId = customer.id
-//         this.customerDiscount=customer.discount
-//     }
-
-//     getId():number{
-//       return this.customerId
-//     }
-//     getName():string{
-//         return this.customerName
-//     }
-//     getDiscount():number{
-//         return this.customerDiscount
-
-//     }
-//     setDiscount(discount:number){
-//         this.customerDiscount = discount
-//     }
-//     toString():string{
-//         return `${this.customerName}`
-//     }
-// }
-
-// interface AccountData{
-//    accId:number;
-//    accCustomer:Customer;
-//     accBal:number;
-// }
-
-// class CustomerAccounts extends Customer{
-//     accId:number;
-//     accCustomer:Customer;
-//      accBal:number;
-//     constructor( customerData: CustomerData, accountDetails:AccountData){
-//         super(customerData)
-//         this.accId =accountDetails.accId
-//         this.accCustomer=accountDetails.accCustomer
-//         this.accBal = accountDetails.accBal
-//     }
-
-//     getAccountId():number{
-//         return this.customerAccountId
-//       }
-
-//       getBalance(){
-//           return this.customerBalance
-//       }
-//       setBalance(){
-//           return this.balanceAmount
-//       }
-//       toString():string{
-//         return `hi ${this.customerName}`
-//     }
-//     getCustomerName(){
-//         return this.customerName
-//     }
-//     getDeposit(){
-//         return `${this.customerBalance} +${this.depositAmount}
-//     }
-
-// }
 interface CustomerDetails {
   ID: number;
   name: string;
@@ -81,6 +7,11 @@ interface InvoiceDetails {
   invoiceID: number;
   amount: number;
   customer?: CustomerDetails;
+}
+interface AccountDetails {
+  accId: number;
+  customer: CustomerDetails;
+  balance: number;
 }
 
 class Customer {
@@ -146,85 +77,86 @@ class CustomerInvoice extends Customer {
     return `Customer Name is ${this.name}`;
   }
   getAmountAfterDiscount() {
-    let afterDiscount = this.amount - (this.amount * (this.discount / 100));
+    let afterDiscount = this.amount - this.amount * (this.discount / 100);
     return afterDiscount;
   }
 }
 
-let customerInfo = new CustomerInvoice(
+class CusAccounts extends Customer {
+  accId: number;
+  customer: CustomerDetails;
+  balance: number;
+
+  constructor(custDet: CustomerDetails, accounts: AccountDetails) {
+    super(custDet);
+    this.accId = accounts.accId;
+    this.customer = accounts.customer;
+    this.balance = accounts.balance;
+  }
+  getAccId() {
+    return this.accId;
+  }
+  getCustomer() {
+    return this.customer;
+  }
+  getBalance() {
+    return this.balance;
+  }
+  setBalance(balance: number) {
+    this.balance = balance;
+  }
+  accString() {
+    return `Customer ${this.customer.name} of ID ${
+      this.customer.ID
+    } of Balance:  ${this.balance.toFixed(2)}`;
+  }
+  getCustomerName() {
+    return this.customer.name;
+  }
+  setDeposit(amount: number) {
+    this.balance += amount;
+  }
+  setWithdraw(amount: number) {
+    if (this.balance >= amount) {
+      return (this.balance = this.balance - amount);
+    } else {
+      return `amount withdrawn exceeds the current balance`;
+    }
+  }
+}
+
+let customerAccounts = new CusAccounts(
   {
     ID: 2,
     name: "vamshi",
     discount: 3,
   },
   {
-    invoiceID: 32,
-    amount: 30000,
+    accId: 40,
     customer: {
       ID: 2,
       name: "vamshi",
       discount: 3,
     },
+    balance: 50000,
   }
 );
-console.log("parent");
-console.log(customerInfo.getID());
-console.log(customerInfo.getName());
-console.log(customerInfo.getDiscount());
-console.log(customerInfo.setDiscount(25));
-console.log(customerInfo.toString());
-console.log("child");
-console.log(customerInfo.getInoviceID());
-console.log(customerInfo.getCustomer());
-console.log(customerInfo.setCustomer({ ID: 45, name: "Anirudh", discount: 5 }));
-console.log(customerInfo.getAmount())
-console.log(customerInfo.setAmount(30000))
-console.log(customerInfo.getCutomerName())
-console.log(customerInfo.getAmountAfterDiscount())
-
+console.log("Accounts");
+console.log(customerAccounts.getAccId());
+console.log(customerAccounts.getCustomer());
+console.log(customerAccounts.getBalance());
+console.log(customerAccounts.setBalance(50000));
+console.log(customerAccounts.accString());
+console.log(customerAccounts.getCustomerName());
+console.log(customerAccounts.setDeposit(2000));
+console.log(customerAccounts.getBalance());
+console.log(customerAccounts.setWithdraw(500));
 
 function showTable() {
   console.log("working");
   let table = document.getElementById("showTable");
   table.style.display = "block";
-  table.innerHTML = `  <table class="table" id="table">
-<thead>
-  <tr>
-    <th scope="col">ID</th>
-    <th scope="col">Name</th>
-    <th scope="col">Discount</th>
-    <th scope="col">Total Amount</th>
-    <th scope="col">Amount After Discount</th>
-    <th scope="col">Balance</th>
-    <th scope="col">Deposit</th>
-    <th scope="col">Withdraw</th>
-    <th scope="col">Closing Balance</th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <th scope="row">1</th>
-    <td>Mark</td>
-    <td>Otto</td>
-    <td>@mdo</td>
-  </tr>
-  <tr>
-    <th scope="row">2</th>
-    <td>Jacob</td>
-    <td>Thornton</td>
-    <td>@fat</td>
-  </tr>
-  <tr>
-    <th scope="row">3</th>
-    <td>Larry</td>
-    <td>the Bird</td>
-    <td>@twitter</td>
-  </tr>
-</tbody>
-</table>
 
-<button type="button" class="btn btn-danger" id="closeBtn" onclick="closeTable()">Close</button>
-`;
   let addcustomer = document.getElementById("addcustomer");
   addcustomer.style.pointerEvents = "none";
 }
@@ -234,4 +166,82 @@ function closeTable() {
   table.style.display = "none";
   let addcustomer = document.getElementById("addcustomer");
   addcustomer.style.pointerEvents = "fill";
+}
+
+function addCustomer() {
+  let cusID = (<HTMLInputElement>document.getElementById("inputId")).value;
+  let cusName = (<HTMLInputElement>document.getElementById("inputName")).value;
+  let cusDisc = (<HTMLInputElement>document.getElementById("inputDiscount")).value;
+  let cusAmnt = (<HTMLInputElement>document.getElementById("inputTotalAmnt")).value;
+  let invoID = (<HTMLInputElement>document.getElementById("inputInvoiceID")).value;
+  let accID = (<HTMLInputElement>document.getElementById("inputAccID")).value;
+  let bal = (<HTMLInputElement>document.getElementById("inputBalance")).value;
+
+  console.log("button is working");
+  console.log(cusID);
+  let customerInfo = new CustomerInvoice(
+    {
+      ID: +cusID,
+      name: cusName,
+      discount: +cusDisc,
+    },
+    {
+      invoiceID: +invoID,
+      amount: +cusAmnt,
+      customer: {
+        ID: +cusID,
+        name: cusName,
+        discount: +cusDisc,
+      },
+    }
+  );
+  console.log("parent");
+  console.log(customerInfo.getID());
+  console.log(customerInfo.getName());
+  console.log(customerInfo.getDiscount());
+  // console.log(customerInfo.setDiscount(25));
+  console.log(customerInfo.toString());
+  console.log("child");
+  console.log(customerInfo.getInoviceID());
+  console.log(customerInfo.getCustomer());
+  console.log(
+    customerInfo.setCustomer({ ID: 45, name: "Anirudh", discount: 5 })
+  );
+  console.log(customerInfo.getAmount());
+  // console.log(customerInfo.setAmount(30000));
+  console.log(customerInfo.getCutomerName());
+  console.log(customerInfo.getAmountAfterDiscount());
+
+  let customerAccounts = new CusAccounts(
+    {
+      ID: +cusID,
+      name: cusName,
+      discount: +cusDisc,
+    },
+    {
+      accId: +accID,
+      customer: {
+        ID: +cusID,
+        name: cusName,
+        discount: +cusDisc,
+      },
+      balance: +bal,
+    }
+  );
+  console.log("Accounts");
+  console.log(customerAccounts.getAccId());
+  console.log(customerAccounts.getCustomer());
+  console.log(customerAccounts.getBalance());
+  console.log(customerAccounts.setBalance(50000));
+  console.log(customerAccounts.accString());
+  console.log(customerAccounts.getCustomerName());
+  console.log(customerAccounts.setDeposit(2000));
+  console.log(customerAccounts.getBalance());
+  console.log(customerAccounts.setWithdraw(500));
+
+  let tbody = document.getElementById('tbody')
+  let tr = document.createElement('tr')
+  
+tr.innerHTML = `<td>${customerAccounts.getAccId()}</td> <td>${customerAccounts.getAccId()}</td>`
+    tbody.append(tr)
 }
