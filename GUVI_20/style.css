@@ -1,6 +1,6 @@
-/* body{
+body{
    background:#343a40
-} */
+}
 .title{
     display: flex;
     flex-direction: column;

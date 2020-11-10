@@ -7,10 +7,8 @@ videodefault();
 
 class Controls {
   source: String;
-  video:any
   constructor() {
     this.source = "";
-    this.video = <HTMLVideoElement>document.getElementById("myVideo")
   }
 
   companyBrand(src: string) {
@@ -21,19 +19,32 @@ class Controls {
       </video>`;
       let myID =<HTMLVideoElement>document.getElementById("myVideo");
   }
-  play(myID:any) {
-    this.video = myID
-    // let myID =<HTMLVideoElement>document.getElementById("myVideo");
+  play() {
+    let myID =<HTMLVideoElement>document.getElementById("myVideo");
     myID.play();
   }
-  pause(myID) {
-    myID.pause;
+  pause() {
+    let myID =<HTMLVideoElement>document.getElementById("myVideo");
+    myID.pause();
   }
-  volInc(myID){
-    myID.volume = myID.volume + 0.1;
+  volInc(){
+   
+    let myID =<HTMLVideoElement>document.getElementById("myVideo");
+    if(myID.volume<=1){
+      myID.volume = myID.volume + 0.1;
+    }else{
+      alert('volume full')
+    }
+  
   }
-  volDec(myID){
-    myID.volume = myID.volume - 0.1;
+  volDec(){
+    let myID =<HTMLVideoElement>document.getElementById("myVideo");
+    if(myID.volume>0){
+      myID.volume = myID.volume - 0.1;
+    }else{
+      alert('volume 0')
+    }
+  
   }
 }
 
@@ -63,23 +74,27 @@ function company(brand: string) {
   }
 }
 
-// let play = document.getElementById('play')
 
-// play.setAttribute('onclick','playVideo()')
 function playVideo(){
   console.log('working')
-  let div = document.getElementById('videoBox')
     let controls = new Controls();
-    controls.play(div)
+    controls.play()
 }
 
-// let pause = document.getElementById('pause')
 
-// pause.setAttribute('onclick','pauseVideo()')    
 function pauseVideo(){
   console.log('working1')
-  let div = document.getElementById('videoBox')
     let controls = new Controls();
-    controls.pause(div)
+    controls.pause()
+}
+function volUp(){
+  console.log('working1')
+    let controls = new Controls();
+    controls.volInc()
+}
+function volDown(){
+  console.log('working1')
+    let controls = new Controls();
+    controls.volDec()
 }
 

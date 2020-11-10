@@ -6,7 +6,6 @@ videodefault();
 var Controls = /** @class */ (function () {
     function Controls() {
         this.source = "";
-        this.video = document.getElementById("myVideo");
     }
     Controls.prototype.companyBrand = function (src) {
         this.source = src;
@@ -14,19 +13,31 @@ var Controls = /** @class */ (function () {
         videoBox.innerHTML = " <video id=\"myVideo\" controls>\n        <source src=\"" + this.source + "\" type=\"video/mp4\">\n      </video>";
         var myID = document.getElementById("myVideo");
     };
-    Controls.prototype.play = function (myID) {
-        this.video = myID;
-        // let myID =<HTMLVideoElement>document.getElementById("myVideo");
+    Controls.prototype.play = function () {
+        var myID = document.getElementById("myVideo");
         myID.play();
     };
-    Controls.prototype.pause = function (myID) {
-        myID.pause;
+    Controls.prototype.pause = function () {
+        var myID = document.getElementById("myVideo");
+        myID.pause();
     };
-    Controls.prototype.volInc = function (myID) {
-        myID.volume = myID.volume + 0.1;
+    Controls.prototype.volInc = function () {
+        var myID = document.getElementById("myVideo");
+        if (myID.volume <= 1) {
+            myID.volume = myID.volume + 0.1;
+        }
+        else {
+            alert('volume full');
+        }
     };
-    Controls.prototype.volDec = function (myID) {
-        myID.volume = myID.volume - 0.1;
+    Controls.prototype.volDec = function () {
+        var myID = document.getElementById("myVideo");
+        if (myID.volume > 0) {
+            myID.volume = myID.volume - 0.1;
+        }
+        else {
+            alert('volume 0');
+        }
     };
     return Controls;
 }());
@@ -48,19 +59,23 @@ function company(brand) {
         controls.companyBrand("http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4");
     }
 }
-// let play = document.getElementById('play')
-// play.setAttribute('onclick','playVideo()')
 function playVideo() {
     console.log('working');
-    var div = document.getElementById('videoBox');
     var controls = new Controls();
-    controls.play(div);
+    controls.play();
 }
-// let pause = document.getElementById('pause')
-// pause.setAttribute('onclick','pauseVideo()')    
 function pauseVideo() {
     console.log('working1');
-    var div = document.getElementById('videoBox');
     var controls = new Controls();
-    controls.pause(div);
+    controls.pause();
+}
+function volUp() {
+    console.log('working1');
+    var controls = new Controls();
+    controls.volInc();
+}
+function volDown() {
+    console.log('working1');
+    var controls = new Controls();
+    controls.volDec();
 }
