@@ -1,0 +1,14 @@
+.scoreBoard{
+    display: flex;
+    justify-content: space-around;
+    border-top: 1px solid gray;
+    margin: 5px 0;
+    border-bottom: 1px solid gray;
+}
+.resultBoard{
+    display: flex;
+    justify-content: space-around;
+}
+h3{
+    text-align: center;
+}
