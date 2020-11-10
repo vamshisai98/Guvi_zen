@@ -1,0 +1,21 @@
+/* body{
+   background:#343a40
+} */
+.title{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+ .fa-play-circle{
+    margin: 20px;
+}
+video{
+    width: 100%;
+    height: 250px;
+}
+.videoBox{
+    margin: 20px 0;
+}
+.controls{
+    text-align: center;
+}
