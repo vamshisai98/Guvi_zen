@@ -26,8 +26,8 @@
                 <div class="card  mb-3 team1 m-2" style="max-width: 18rem;">
                     <div class="card-header text-center">TEAM 1 SCORE</div>
                     <div class="card-body text-center">
-                        <h5 class="card-title text-center">151</h5>
-                        <button type="button" class="btn btn-outline-primary text-center">HIT 1</button>
+                        <h5 class="card-title text-center"id="scoreA">0</h5>
+                        <button type="button" class="btn btn-outline-primary text-center" id="hit1" onclick="h1()">HIT 1</button>
                     </div>
                 </div>
 
@@ -35,7 +35,7 @@
                 <div class="card  mb-3 timer m-2" style="max-width: 18rem;">
                     <div class="card-header bg-white text-center">TIMER</div>
                     <div class="card-body text-center">
-                        <h5 class="card-title text-center">40</h5>
+                        <h5 class="card-title text-center" id="countDown">40</h5>
                     </div>
                 </div>
 
@@ -43,8 +43,8 @@
                 <div class="card  mb-3 team2 m-2" style="max-width: 18rem;">
                     <div class="card-header text-center">TEAM 2 SCORE</div>
                     <div class="card-body text-center">
-                        <h5 class="card-title text-center">140</h5>
-                        <button type="button" class="btn btn-outline-primary text-center">HIT 2</button>
+                        <h5 class="card-title text-center "id="scoreB">0</h5>
+                        <button type="button" class="btn btn-outline-primary text-center" id="hit2" onclick="h2()">HIT 2</button>
                     </div>
                 </div>
 
@@ -68,124 +68,28 @@
 
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                <td>Mark</td>
-
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                <td>Mark</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                <td>Mark</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">4</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                <td>Mark</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">5</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                <td>Mark</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">6</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                <td>Mark</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">7</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                <td>Mark</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">8</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                <td>Mark</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">9</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                <td>Mark</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">10</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                <td>Mark</td>
-                            </tr>
-                        </tbody>
+                       <tbody id="tbody1"></tbody>
                     </table>
                 </div>
                 <div class="results m-3 text-center">
                     <div class="genResult">
-                        <button type="button" class="btn btn-primary">Generate Result</button>
+                        <button type="button" class="btn btn-primary" onclick="generateResult()">Generate Result</button>
                     </div>
-                    <div class="winBox mt-4">
-                        <h5>MATCH WON BY</h5>
-                        <h6 class="win text-center">TEAM 2</h6>
+                    <div class="resultBox">
+                        <div class="winBox mt-4">
+                            <h5>MATCH WON BY</h5>
+                            <h6 class="win text-center " id="team">TEAM 2</h6>
+                        </div>
+                        <div class="manOfmatch mt-4">
+                            <div class="titleWinner">
+                                <h5>MAN OF THE MATCH</h5>
+                                <h6 class="win text-center" >TEAM 2</h6>
+                                <h6 class="win text-center" id="scoreMax">SCORE:30</h6>
+                            </div>
+                          
+                        </div>
                     </div>
-                    <div class="manOfmatch mt-4">
-                        <h5>MAN OF THE MATCH</h5>
-                        <h6 class="win text-center">TEAM 2</h6>
-                        <h6 class="win text-center">SCORE:30</h6>
-                    </div>
+                 
                 </div>
 
                 <div class="scoreTable1 ">
@@ -201,117 +105,15 @@
                                 <th scope="col">B5</th>
                                 <th scope="col">B6</th>
                                 <th scope="col">TOTAL</th>
-    
+
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                <td>Mark</td>
-    
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                <td>Mark</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                <td>Mark</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">4</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                <td>Mark</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">5</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                <td>Mark</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">6</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                <td>Mark</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">7</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                <td>Mark</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">8</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                <td>Mark</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">9</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                <td>Mark</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">10</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                <td>Mark</td>
-                            </tr>
-                        </tbody>
+                            <tbody id="tbody2"></tbody>
                     </table>
                 </div>
             </div>
-            </div>
-           
+        </div>
+
 
 
         <script src='index.js'></script>
