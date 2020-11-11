@@ -27,7 +27,7 @@
                     <div class="card-header text-center">TEAM 1 SCORE</div>
                     <div class="card-body text-center">
                         <h5 class="card-title text-center"id="scoreA">0</h5>
-                        <button type="button" class="btn btn-outline-primary text-center" id="hit1" onclick="h1()">HIT 1</button>
+                        <button type="button" class="btn btn-primary text-center" id="hit1" onclick="h1()">HIT 1</button>
                     </div>
                 </div>
 
@@ -35,7 +35,7 @@
                 <div class="card  mb-3 timer m-2" style="max-width: 18rem;">
                     <div class="card-header bg-white text-center">TIMER</div>
                     <div class="card-body text-center">
-                        <h5 class="card-title text-center" id="countDown">40</h5>
+                        <h5 class="card-title text-center" id="countDown">0</h5>
                     </div>
                 </div>
 
@@ -44,7 +44,7 @@
                     <div class="card-header text-center">TEAM 2 SCORE</div>
                     <div class="card-body text-center">
                         <h5 class="card-title text-center "id="scoreB">0</h5>
-                        <button type="button" class="btn btn-outline-primary text-center" id="hit2" onclick="h2()">HIT 2</button>
+                        <button type="button" class="btn btn-primary text-center" id="hit2" onclick="h2()" disabled>HIT 2</button>
                     </div>
                 </div>
 
@@ -73,17 +73,18 @@
                 </div>
                 <div class="results m-3 text-center">
                     <div class="genResult">
-                        <button type="button" class="btn btn-primary" onclick="generateResult()">Generate Result</button>
+                        <button type="button" class="btn btn-primary" id="result" onclick="generateResult()" disabled>Generate Result</button>
                     </div>
-                    <div class="resultBox">
+                    <div class="resultBox" id="resultBox">
                         <div class="winBox mt-4">
                             <h5>MATCH WON BY</h5>
-                            <h6 class="win text-center " id="team">TEAM 2</h6>
+                            <h6 class="win text-center " id="team"></h6>
                         </div>
                         <div class="manOfmatch mt-4">
                             <div class="titleWinner">
                                 <h5>MAN OF THE MATCH</h5>
-                                <h6 class="win text-center" >TEAM 2</h6>
+                                <h6 class="win text-center" id="team2"></h6>
+                                <h6 class="win text-center" id="player">SCOT</h6>
                                 <h6 class="win text-center" id="scoreMax">SCORE:30</h6>
                             </div>
                           

@@ -12,3 +12,6 @@
 h3{
     text-align: center;
 }
+.resultBox{
+    display: none;
+}

@@ -15,14 +15,20 @@ class Cricket {
     }
     timmer(team: number) {
         this.teamA = team;
-        setTimeout(`hit${team}()`, 2000);
+        setTimeout(`hit${team}()`, 1000);
+    }
+    countDown() {
+        let x = 1
+        let timer = setInterval(function () {
+            document.getElementById('countDown').innerHTML = `${--x}`
+            if (x == 0) {
+                clearInterval(timer)
+            }
+        }, 1000)
     }
 }
-
 let cricket = new Cricket();
-console.log(cricket.getRuns(0, 6));
-
-let hit1 = (secs) => {
+let hit1 = () => {
     let final = 0;
     for (let j = 1; j <= 10; j++) {
         let tr = document.createElement("tr");
@@ -30,51 +36,32 @@ let hit1 = (secs) => {
         let td = document.createElement("td");
         td.innerHTML = `PLAYER ${j}`;
         tr.append(td);
-
-        for (let i = 0; i < 6; i++) {
+        let table1 = document.getElementById("tbody1");
+        let trow = table1.querySelectorAll("tr");
+        let tableLen = [];
+        trow.forEach(function (e) {
+            tableLen.push(e.querySelectorAll("td").length);
+        });
+        let check = 0;
+        for (let i = 1; i <= 6; i++) {
             let run = cricket.getRuns(0, 6);
             total += run;
             let td = document.createElement("td");
             td.id = "td";
-            console.log("run:", run);
             td.innerHTML = `${run}`;
             tr.append(td);
-            let table1 = document.getElementById('tbody1')
-            let trow = table1.querySelectorAll("tr")
-            console.log('trow:',trow)
-
-            let tableLen= []
-            trow.forEach(function(e){
-                tableLen.push(e.querySelectorAll("td").length )
-               })
-               console.log('value',tableLen)
-              
-
-            if (td.innerHTML == "0") {
-              
-                for(let j=0;j<=tableLen.length;j++){
-                    
-                    for (let i = 0; i<(8-tableLen[j]); i++) {
-                        let td = document.createElement("td");
-                        td.innerHTML = "";
-                        tr.append(td);
-                    }
-                  
-                }
-               break
+            if (run == 0) {
+                check = i
+                break;
             }
-
-            // if (run) {
-            //     td.innerHTML = `${run}`;
-            //     tr.append(td);
-            // }
-            // else {
-            //     td.innerHTML = "0";
-            //     tr.append(td);
-            //     break;
-            // }
         }
-
+        if (((6 - check) || (6 - check == 0)) && (check != 0)) {
+            for (let k = 1; k <= 6 - check; k++) {
+                let td = document.createElement('td');
+                tr.appendChild(td);
+            }
+        }
+        console.log('sum:', 8 - tableLen[j])
         td = document.createElement("td");
         td.innerHTML = `${total}`;
         tr.append(td);
@@ -82,68 +69,92 @@ let hit1 = (secs) => {
         final += total;
         document.getElementById("scoreA").innerHTML = `${final}`;
 
-        console.log("finalscore", final);
     }
-    // let time = document.getElementById('countDown')
-    // time.innerHTML=`${secs}`
-    // let timerSet = setTimeout(`hit1('${secs}')`,2000)
-    // console.log(timerSet)
-    // if(secs<1){
-    //     clearTimeout(timerSet)
-    //     time.innerHTML='0'
-    // }
-    // secs--
+    (<HTMLInputElement>document.getElementById('hit1')).disabled = true;
+    (<HTMLInputElement>document.getElementById('hit2')).disabled = false
 };
 let hit2 = () => {
     let final = 0;
+    let max:any=[]
+    let highScore = []
     for (let j = 1; j <= 10; j++) {
+
         let tr = document.createElement("tr");
         let total = 0;
-
         let td = document.createElement("td");
         td.innerHTML = `PLAYER ${j}`;
         tr.append(td);
-        for (let i = 0; i < 6; i++) {
+        let table1 = document.getElementById("tbody1");
+        let trow = table1.querySelectorAll("tr");
+        let tableLen = [];
+        trow.forEach(function (e) {
+            tableLen.push(e.querySelectorAll("td").length);
+        });
+        let check = 0;
+
+        for (let i = 1; i <= 6; i++) {
             let run = cricket.getRuns(0, 6);
             total += run;
+
+
             let td = document.createElement("td");
-            console.log("run:", run);
-            if (run) {
-                td.innerHTML = `${run}`;
-                tr.append(td);
-            } else {
-                td.innerHTML = "0";
-                tr.append(td);
+            td.id = "td";
+            td.innerHTML = `${run}`;
+            tr.append(td);
+            if (run == 0) {
+                check = i
                 break;
             }
         }
-
+        if (((6 - check) || (6 - check == 0)) && (check != 0)) {
+            for (let k = 1; k <= 6 - check; k++) {
+                let td = document.createElement('td');
+                tr.appendChild(td);
+            }
+        }
+        console.log('sum:', 8 - tableLen[j])
         td = document.createElement("td");
         td.innerHTML = `${total}`;
         tr.append(td);
         document.getElementById("tbody2").append(tr);
         final += total;
         document.getElementById("scoreB").innerHTML = `${final}`;
-        console.log("finalscore", final);
-    }
-};
+        highScore.push(total)
+        max = Math.max(...highScore)
+        
 
+    }
+    let maxScore = max
+    console.log('high', highScore);
+     let index = highScore.indexOf(max)+1;
+    (<HTMLInputElement>document.getElementById('player')).innerHTML = `PLAYER ${index}`;
+    (<HTMLInputElement>document.getElementById('scoreMax')).innerHTML = `SCORE ${maxScore}`;
+    
+    (<HTMLInputElement>document.getElementById('hit2')).disabled = true;
+    (<HTMLInputElement>document.getElementById('result')).disabled = false
+
+
+};
 let h1 = () => {
     let cricket = new Cricket();
     cricket.timmer(1);
+    cricket.countDown()
 };
-
 let h2 = () => {
     let cricket = new Cricket();
     cricket.timmer(2);
+    cricket.countDown()
 };
-
 let generateResult = () => {
-    let score1 = document.getElementById("scoreA");
-    let score2 = document.getElementById("scoreB");
-    if (score1 > score2) {
+    let score1 = document.getElementById("scoreA").innerText;
+    let score2 = document.getElementById("scoreB").innerText;
+    if (+score1 > +score2) {
         document.getElementById("team").innerText = "TEAM 1";
+        document.getElementById("team2").innerText = "TEAM 1"
+
     } else {
         document.getElementById("team").innerText = "TEAM 2";
+        document.getElementById("team2").innerText = "TEAM 2"
     }
+    (<HTMLInputElement>document.getElementById('resultBox')).style.display = 'block'
 };
