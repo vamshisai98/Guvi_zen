@@ -11,12 +11,12 @@ var Cricket = /** @class */ (function () {
     };
     Cricket.prototype.timmer = function (team) {
         this.teamA = team;
-        setTimeout("hit" + team + "()", 1000);
+        setTimeout("hit" + team + "()", 61000);
     };
     Cricket.prototype.countDown = function () {
-        var x = 1;
+        var x = 61;
         var timer = setInterval(function () {
-            document.getElementById('countDown').innerHTML = "" + --x;
+            document.getElementById("countDown").innerHTML = "" + --x;
             if (x == 0) {
                 clearInterval(timer);
             }
@@ -27,13 +27,15 @@ var Cricket = /** @class */ (function () {
 var cricket = new Cricket();
 var hit1 = function () {
     var final = 0;
+    var max = [];
+    var highScore = [];
     var _loop_1 = function (j) {
         var tr = document.createElement("tr");
         var total = 0;
         var td = document.createElement("td");
         td.innerHTML = "PLAYER " + j;
         tr.append(td);
-        var table1 = document.getElementById("tbody1");
+        var table1 = document.getElementById("tbody2");
         var trow = table1.querySelectorAll("tr");
         var tableLen = [];
         trow.forEach(function (e) {
@@ -52,25 +54,30 @@ var hit1 = function () {
                 break;
             }
         }
-        if (((6 - check) || (6 - check == 0)) && (check != 0)) {
+        if ((6 - check || 6 - check == 0) && check != 0) {
             for (var k = 1; k <= 6 - check; k++) {
-                var td_2 = document.createElement('td');
+                var td_2 = document.createElement("td");
                 tr.appendChild(td_2);
             }
         }
-        console.log('sum:', 8 - tableLen[j]);
         td = document.createElement("td");
         td.innerHTML = "" + total;
         tr.append(td);
         document.getElementById("tbody1").append(tr);
         final += total;
         document.getElementById("scoreA").innerHTML = "" + final;
+        highScore.push(total);
+        max = Math.max.apply(Math, highScore);
     };
     for (var j = 1; j <= 10; j++) {
         _loop_1(j);
     }
-    document.getElementById('hit1').disabled = true;
-    document.getElementById('hit2').disabled = false;
+    var maxScore = max;
+    var index = highScore.indexOf(max) + 1;
+    (document.getElementById("player")).innerHTML = "PLAYER " + index;
+    (document.getElementById("scoreMax")).innerHTML = "SCORE " + maxScore;
+    document.getElementById("hit1").disabled = true;
+    document.getElementById("hit2").disabled = false;
 };
 var hit2 = function () {
     var final = 0;
@@ -101,13 +108,12 @@ var hit2 = function () {
                 break;
             }
         }
-        if (((6 - check) || (6 - check == 0)) && (check != 0)) {
+        if ((6 - check || 6 - check == 0) && check != 0) {
             for (var k = 1; k <= 6 - check; k++) {
-                var td_4 = document.createElement('td');
+                var td_4 = document.createElement("td");
                 tr.appendChild(td_4);
             }
         }
-        console.log('sum:', 8 - tableLen[j]);
         td = document.createElement("td");
         td.innerHTML = "" + total;
         tr.append(td);
@@ -121,12 +127,11 @@ var hit2 = function () {
         _loop_2(j);
     }
     var maxScore = max;
-    console.log('high', highScore);
     var index = highScore.indexOf(max) + 1;
-    document.getElementById('player').innerHTML = "PLAYER " + index;
-    document.getElementById('scoreMax').innerHTML = "SCORE " + maxScore;
-    document.getElementById('hit2').disabled = true;
-    document.getElementById('result').disabled = false;
+    (document.getElementById("player1")).innerHTML = "PLAYER " + index;
+    (document.getElementById("scoreMax1")).innerHTML = "SCORE " + maxScore;
+    document.getElementById("hit2").disabled = true;
+    document.getElementById("result").disabled = false;
 };
 var h1 = function () {
     var cricket = new Cricket();
@@ -149,5 +154,27 @@ var generateResult = function () {
         document.getElementById("team").innerText = "TEAM 2";
         document.getElementById("team2").innerText = "TEAM 2";
     }
-    document.getElementById('resultBox').style.display = 'block';
+    document.getElementById("resultBox").style.display =
+        "block";
+    var winner = document.getElementById("team");
+    if (winner.innerHTML == "TEAM 1") {
+        document.getElementById("player").style.display =
+            "block";
+        document.getElementById("player1").style.display =
+            "none";
+        document.getElementById("scoreMax").style.display =
+            "block";
+        document.getElementById("scoreMax1").style.display =
+            "none";
+    }
+    else {
+        document.getElementById("player").style.display =
+            "none";
+        document.getElementById("player1").style.display =
+            "block";
+        document.getElementById("scoreMax").style.display =
+            "none";
+        document.getElementById("scoreMax1").style.display =
+            "block";
+    }
 };
