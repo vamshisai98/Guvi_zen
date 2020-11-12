@@ -1,0 +1,27 @@
+body{
+    background: #dc3545;;
+}
+.title{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background: white;
+}
+.fa-envelope{
+    font-size: 40px;
+    color: #dc3545;
+}
+.titleHeading{
+font-size: 50px;
+}
+.signButton{
+    display: flex;
+    justify-content: space-between;
+}
+.contentTable{
+    background: white;
+}
+pre{
+    background: white;
+}
