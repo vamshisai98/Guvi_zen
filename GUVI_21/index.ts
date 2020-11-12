@@ -15,16 +15,16 @@ class Cricket {
   }
   timmer(team: number) {
     this.teamA = team;
-    setTimeout(`hit${team}()`, 61000);
+    setTimeout(`hit${team}()`, 60000);
   }
   countDown() {
-    let x = 61;
+    let x = 60;
     let timer = setInterval(function () {
       document.getElementById("countDown").innerHTML = `${--x}`;
       if (x == 0) {
         clearInterval(timer);
       }
-    }, 1000);
+    },1000);
   }
 }
 let cricket = new Cricket();
@@ -141,11 +141,13 @@ let hit2 = () => {
 
   (<HTMLInputElement>document.getElementById("hit2")).disabled = true;
   (<HTMLInputElement>document.getElementById("result")).disabled = false;
+
 };
 let h1 = () => {
   let cricket = new Cricket();
   cricket.timmer(1);
   cricket.countDown();
+
 };
 let h2 = () => {
   let cricket = new Cricket();

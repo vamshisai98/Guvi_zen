@@ -11,10 +11,10 @@ var Cricket = /** @class */ (function () {
     };
     Cricket.prototype.timmer = function (team) {
         this.teamA = team;
-        setTimeout("hit" + team + "()", 61000);
+        setTimeout("hit" + team + "()", 60000);
     };
     Cricket.prototype.countDown = function () {
-        var x = 61;
+        var x = 60;
         var timer = setInterval(function () {
             document.getElementById("countDown").innerHTML = "" + --x;
             if (x == 0) {
