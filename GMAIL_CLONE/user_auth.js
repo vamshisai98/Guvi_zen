@@ -1,20 +1,15 @@
-// Client ID and API key from the Developer Console
-var CLIENT_ID = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXmnhs.apps.googleusercontent.com';
-                 
-var API_KEY = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX ';
-              
+let CLIENT_ID = '863125050748-nkjacai5o70po883f9t6neds1t57mnhs.apps.googleusercontent.com';
+let API_KEY = 'AIzaSyCDS_5PZVgK1diAYzmic3sl4XB4WkKQ0T0';
+
 // Array of API discovery doc URLs for APIs used by the quickstart
-var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/gmail/v1/rest"];
+let DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/gmail/v1/rest"];
 
 // Authorization scopes required by the API; multiple scopes can be
 // included, separated by spaces.
-var SCOPES = 'https://www.googleapis.com/auth/gmail.readonly';
+let SCOPES = `https://www.googleapis.com/auth/gmail.readonly https://www.googleapis.com/auth/gmail.send`;
 
-var authorizeButton = document.getElementById('authorize_button');
-var signoutButton = document.getElementById('signout_button');
-var compose = document.getElementById('compose-button');
-let table = document.getElementById('contentTable')
-let pre = document.getElementById('content')
+let authorizeButton = document.getElementById('authorize_button');
+let signoutButton = document.getElementById('signout_button');
 
 /**
  *  On load, called to load the auth2 library and API client library.
@@ -42,7 +37,7 @@ function initClient() {
         authorizeButton.onclick = handleAuthClick;
         signoutButton.onclick = handleSignoutClick;
     }, function (error) {
-        appendPre(JSON.stringify(error, null, 2));
+        console.error(JSON.stringify(error, null, 2));
     });
 }
 
@@ -54,17 +49,15 @@ function updateSigninStatus(isSignedIn) {
     if (isSignedIn) {
         authorizeButton.style.display = 'none';
         signoutButton.style.display = 'block';
-        compose.style.display = 'block';
-        table.style.display = 'block'
-        content.style.display='block'
-        // listLabels();
-        displayInbox()
+        document.getElementById('main').style.display = 'flex';
+        document.getElementById('content').style.display = 'none';
+        getMesId(document.querySelector('.active'));
+    
     } else {
         authorizeButton.style.display = 'block';
         signoutButton.style.display = 'none';
-        compose.style.display = 'none';
-        table.style.display = 'none'
-        content.style.display='none'
+        document.getElementById('main').style.display = 'none';
+        document.getElementById('content').style.display = 'block';
     }
 }
 
@@ -72,7 +65,16 @@ function updateSigninStatus(isSignedIn) {
  *  Sign in the user upon button click.
  */
 function handleAuthClick(event) {
-    gapi.auth2.getAuthInstance().signIn();
+    gapi.auth2.getAuthInstance().signIn({
+            scope: "https://mail.google.com/ https://www.googleapis.com/auth/gmail.addons.current.message.action https://www.googleapis.com/auth/gmail.addons.current.message.metadata https://www.googleapis.com/auth/gmail.addons.current.message.readonly https://www.googleapis.com/auth/gmail.modify https://www.googleapis.com/auth/gmail.readonly"
+        })
+        .then(function () {
+            console.log("Sign-in successful");
+        })
+        .then(loadClient)
+        .catch((err) => {
+            console.error("Error signing in", err);
+        });
 }
 
 /**
@@ -82,86 +84,215 @@ function handleSignoutClick(event) {
     gapi.auth2.getAuthInstance().signOut();
 }
 
-/**
- * Append a pre element to the body containing the given message
- * as its text node. Used to display the results of the API call.
- *
- * @param {string} message Text to be placed in pre element.
- */
-function appendPre(message) {
-    var pre = document.getElementById('content');
-    var textContent = document.createTextNode(message + '\n');
-    pre.appendChild(textContent);
+function loadClient() {
+    gapi.client.setApiKey(API_KEY);
+    return gapi.client.load("https://gmail.googleapis.com/$discovery/rest?version=v1")
+        .then(function () {
+                console.log("GAPI client loaded for API");
+            },
+            function (err) {
+                console.error("Error loading GAPI client for API", err);
+            });
 }
 
-/**
- * Print all Labels in the authorized user's inbox. If no labels
- * are found an appropriate message is printed.
- */
-function listLabels() {
-    gapi.client.gmail.users.labels.list({
-        'userId': 'me'
-    }).then(function (response) {
-        var labels = response.result.labels;
-        appendPre('Labels:');
-
-        if (labels && labels.length > 0) {
-            for (i = 0; i < labels.length; i++) {
-                var label = labels[i];
-                appendPre(label.name)
-            }
-        } else {
-            appendPre('No Labels found.');
-        }
-    });
+function createMyElement(tagName, className = '') {
+    let ele = document.createElement(tagName);
+    ele.setAttribute('class', className);
+    return ele;
 }
-function displayInbox() {
+
+
+// Make sure the client is loaded and sign-in is complete before calling this method.
+function getMesId(eleBtn) {
     gapi.client.gmail.users.messages.list({
         'userId': 'me',
-        // 'id': this.id,
+        'labelIds': 'INBOX',
         'maxResults': 10
     }).then(function (response) {
-        var messages = response.result.messages;
-        appendPre('Message:');
-        let userId = 'me'
-        console.log(messages)
-        if (messages && messages.length > 0) {
-            for (i = 0; i < messages.length; i++) {
-                var message = messages[i];
-                appendPre(message.id)
-                console.log(getData(userId,message.id))
-            }
+        let container = document.getElementById('my-table');
+        container.innerHTML = ``;
+        let div = createMyElement('div', 'h5');
+        div.id = "heading"
+        div.innerHTML = "Inbox";
+        let table = createMyElement('table', 'table table-striped table-inbox hidden');
+        table.setAttribute('id', 'inbox');
+        let thead = createMyElement('thead');
+        let tr = createMyElement('tr');
+        let th1 = createMyElement('th');
+        th1.innerHTML = `From`;
+        let th2 = createMyElement('th');
+        th2.innerHTML = `Subject`;
+        let th3 = createMyElement('th');
+        th3.innerHTML = `Date-Time`;
+        tr.append(th1, th2, th3);
+        thead.appendChild(tr);
+        let tbody = createMyElement('tbody');
+        tbody.id = `mail-box`;
+        table.append(thead, tbody);
+        container.append(div, table);
+        response.result.messages.forEach(obj => {
+            displayMessage(obj.id, "inbox");
+        });
+    }).catch(err => {
+        console.error(err);
+    });
+}
+
+function displayMessage(msgId, messType) {
+    gapi.client.gmail.users.messages.get({
+        'userId': 'me',
+        'id': msgId,
+    }).then(function (response) {
+        let data = response.result.payload
+        console.log(data)
+        let userEmail;
+        if (messType == "inbox") {
+             userEmail = data.headers.filter(obj => {
+                return obj.name == 'From';
+            });
         } else {
-            appendPre('No Messages found.');
+             userEmail = data.headers.filter(obj => {
+                return obj.name == 'To';
+            });
         }
-    })
+
+        let subject = data.headers.filter(obj => {
+            return obj.name == 'Subject';
+        });
+        let date = data.headers.filter(obj => {
+            return obj.name == 'Date';
+        });
+
+        let fromValue = userEmail[0]['value'].split('<');
+        let dateTime = new Date(date[0].value).toLocaleString(undefined, {
+            timeZone: 'Asia/Kolkata'
+        });
+        let tr = document.createElement('tr');
+        tr.innerHTML = `
+        <td>${fromValue[0]}</td>
+        <td><button id="message-${msgId}" class="msg-link" data-toggle="modal" data-target="#messageModal">
+          ${subject[0].value}</button>
+        </td>
+        <td>${dateTime}</td>
+      `;
+        document.getElementById('mail-box').appendChild(tr);
+
+        document.getElementById(`message-${msgId}`).addEventListener('click', () => {
+            readInbox(subject[0].value, getBodyMessage(data));
+        })
+        console.log(getBodyMessage(data))
+
+
+    }).catch(err => {
+        console.error(err);
+    });
 }
 
 
-function sendEmail() {
-    let sendBtn = document.getElementById('send-button')
-    sendBtn.setAttribute('class', 'disabled')
+
+
+function readInbox(subject, data) {
+    document.getElementById('messageModalLabel').innerHTML = `${subject}`;
+    let div = document.getElementById('messageModalBody');
+    div.innerHTML = ``;
+    let iframe = document.createElement('iframe');
+    iframe.setAttribute('id', 'message-iframe');
+    div.appendChild(iframe);
+    document.getElementById('message-iframe').contentWindow.document.write(data);
+}
+
+function getBodyMessage(message) {
+    var encodedBody = '';
+    if (typeof message.parts == 'undefined') {
+        encodedBody = message.body.data;
+    } else {
+        encodedBody = displayHTML(message.parts);
+    }
+    encodedBody = encodedBody.replace(/-/g, '+').replace(/_/g, '/').replace(/\s/g, '');
+    return decodeURIComponent(escape(window.atob(encodedBody)));
+}
+
+function displayHTML(arr) {
+    for (var x = 0; x <= arr.length; x++) {
+        if (typeof arr[x].parts === 'undefined') {
+            if (arr[x].mimeType === 'text/html') {
+                return arr[x].body.data;
+            }
+        } else {
+            return displayHTML(arr[x].parts);
+        }
+    }
+    return '';
+}
+
+
+
+function sendEmail(ele) {
+    let to = document.getElementById('email').value;
+    let sub = document.getElementById('subject').value;
+    let msg = document.getElementById('message').value;
+
+    ele.disabled = true;
+
     sendMessage({
-            'To': document.getElementById('compose-to').value,
-            'Subject': document.getElementById('compose-subject').value
+            'To': to,
+            'Subject': sub
         },
-        document.getElementById('compose-message').value
+        msg,
+
     );
 
     return false;
 }
 
-async function getData(userId,id) {
-    try {
-        let response = await fetch(`https://gmail.googleapis.com/gmail/v1/users/${userId}/messages/${id}`)
-        let res = await response.json()
-        console.log(res)
-    } catch (error) {
-        console.log(error)
-    }
+function sendMessage(headersObj, message) {
+    let email = '';
+
+    for (let header in headersObj)
+        email += header += ": " + headersObj[header] + "\r\n";
+
+    email += "\r\n" + message;
+
+    let sendRequest = gapi.client.gmail.users.messages.send({
+        'userId': 'me',
+        'resource': {
+            'raw': window.btoa(email).replace(/\+/g, '-').replace(/\//g, '_')
+        }
+    });
+
+    return sendRequest.execute();
 }
-console.log(getData(message.id))
 
-console.log(displayInbox())
-
-
+function getsentMess(eleBtn) {
+    gapi.client.gmail.users.messages.list({
+        'userId': 'me',
+        'labelIds': 'SENT',
+        'maxResults': 10
+    }).then(function (response) {
+        let container = document.getElementById('my-table');
+        container.innerHTML = ``;
+        let div = createMyElement('div', 'h5');
+        div.innerHTML = "SENT";
+        let table = createMyElement('table', 'table table-striped table-inbox hidden');
+        table.setAttribute('id', 'inbox');
+        let thead = createMyElement('thead');
+        let tr = createMyElement('tr');
+        let th1 = createMyElement('th');
+        th1.innerHTML = `To`;
+        let th2 = createMyElement('th');
+        th2.innerHTML = `Subject`;
+        let th3 = createMyElement('th');
+        th3.innerHTML = `Date-Time`;
+        tr.append(th1, th2, th3);
+        thead.appendChild(tr);
+        let tbody = createMyElement('tbody');
+        tbody.id = `mail-box`;
+        table.append(thead, tbody);
+        container.append(div, table);
+        response.result.messages.forEach(obj => {
+            displayMessage(obj.id, "sent");
+        });
+    }).catch(err => {
+        console.error(err);
+    });
+}
