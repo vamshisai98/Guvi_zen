@@ -30,7 +30,7 @@ iframe {
     display: flex;
 }
 
-.msg-link {
+.message-link {
     background: none !important;
     border: none;
     padding: 0 !important;
@@ -38,18 +38,19 @@ iframe {
     cursor: pointer;
 }
 
-.msg-link:hover {
+.message-link:hover {
     text-decoration: underline;
 }
 
-.msg-link:focus {
+.message-link:focus {
     outline: none;
     box-shadow: none;
+
 }
 
 .hover:hover,
 .active {
-    color: white;
+    color: red ;
     cursor: pointer;
 }
 

@@ -123,7 +123,7 @@ function getMesId(eleBtn) {
         let th2 = createMyElement('th');
         th2.innerHTML = `Subject`;
         let th3 = createMyElement('th');
-        th3.innerHTML = `Date-Time`;
+        th3.innerHTML = `Date/Time`;
         tr.append(th1, th2, th3);
         thead.appendChild(tr);
         let tbody = createMyElement('tbody');
@@ -170,7 +170,7 @@ function displayMessage(msgId, messType) {
         let tr = document.createElement('tr');
         tr.innerHTML = `
         <td>${fromValue[0]}</td>
-        <td><button id="message-${msgId}" class="msg-link" data-toggle="modal" data-target="#messageModal">
+        <td><button id="message-${msgId}" class="message-link" data-toggle="modal" data-target="#messageModal">
           ${subject[0].value}</button>
         </td>
         <td>${dateTime}</td>
