@@ -1,4 +1,4 @@
-const getNotes = require('./notes')
+const notes = require('./notes')
 const chalk = require('chalk')
 const yargs = require('yargs')
 // console.log(process.argv)
@@ -8,7 +8,7 @@ yargs.command({
     command:'add',
     describe:'Add a new note',
     builder:{
-        title:{
+        title:{ 
             describe:'Note title',
             demandOption:true,
             type:'string'
@@ -20,8 +20,7 @@ yargs.command({
         }
     },
     handler:function(argv){
-        console.log('title: '+argv.title) 
-        console.log('body: '+argv.body)
+        notes.addNote(argv.title,argv.body)
     }
 })
 
