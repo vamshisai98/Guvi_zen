@@ -1,0 +1,24 @@
+Today's Task
+
+Design a DB for Hall Booking Application
+
+Hall Collection
+	- Name
+	- sqft
+	- Number of seats
+	- price-per-hour
+
+Customers
+	- name
+	- email
+	- phonenumber
+
+Orders
+	- hallId
+	- customerId
+	- startDateandTime
+	- endDateandTime
+	- Total amount
+
+- Show total amount of orders done by customerA
+- Show total amout of value orderd by Hall 1
