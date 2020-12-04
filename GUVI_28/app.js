@@ -187,7 +187,7 @@ app.post('/forgetpassword', async (req, res) => {
                 secure: false, // true for 465, false for other ports
                 auth: {
                     user: 'vamshianirudhtest@gmail.com', // generated ethereal user
-                    pass: 'vamshi@123', // generated ethereal password
+                    pass: process.env.PWD, // generated ethereal password
                 },
             });
 
