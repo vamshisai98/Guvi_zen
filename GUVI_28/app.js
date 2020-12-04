@@ -233,12 +233,14 @@ app.get('/authenticate/:randomString', async (req, res) => {
         let result = await db.collection('users').findOne({
             randomstring: req.params.randomString
         })
-        if (result.randomstring == req.params.randomString) {
-            res.redirect(`http://localhost:8000/frontend/test.html?randomstring=${req.params.randomString}`)
-        } else {
-            res.status(400).json({
-                message: 'not matched'
-            })
+        if(result){
+
+            if (result.randomstring == req.params.randomString) {
+                res.redirect(`http://localhost:8000/frontend/test.html?randomstring=${req.params.randomString}`)
+            } 
+        }
+        else{
+            res.send(  '<h1>Link has expired</h1>')
         }
     } catch (error) {
         console.log(error)
