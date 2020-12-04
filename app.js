@@ -2,6 +2,7 @@ const express = require('express')
 const mongodb = require('mongodb')
 const cors = require('cors')
 const bcrypt = require('bcrypt')
+const port = process.env.PORT || 3000
 
 const mongoClient = mongodb.MongoClient
 const objectId = mongodb.ObjectID
@@ -281,4 +282,4 @@ app.put('/updatePassword/:randomString', async (req, res) => {
 
 
 
-app.listen(3000, () => console.log("your app runs with port: 3000"));
+app.listen(port, () => console.log("your app runs with port: 3000"));
