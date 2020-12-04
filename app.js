@@ -199,7 +199,7 @@ app.post('/forgetpassword', async (req, res) => {
                 to: 'saivamshianirudh136@gmail.com', // list of receivers
                 subject: "Reset Password", // Subject line
                 text: "Reset Password", // plain text body
-                html: `<b>Click on the link to reset your password <a href="http://localhost:3000/authenticate/${randomString}/">Click here</a></b>`, // html body
+                html: `<b>Click on the link to reset your password <a href="https://user-login-auth-node.herokuapp.com/authenticate/${randomString}/">Click here</a></b>`, // html body
             });
 
             await db.collection("users").updateOne({
