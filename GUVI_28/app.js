@@ -19,9 +19,7 @@ app.get("/users", async (req, res) => {
         let clientInfo = await mongoClient.connect(dbURL)
         let db = clientInfo.db("student-mentor-details")
         let data = await db.collection("users").find().toArray()
-        res.status(200).json({
-            data
-        })
+        res.status(200).json(data)
         clientInfo.close()
     } catch (error) {
         console.log(error)
@@ -54,9 +52,7 @@ app.get("/get-user/:id", async (req, res) => {
         let data = await db.collection("users").findOne({
             _id: objectId(req.params.id)
         })
-        res.status(200).json({
-            data
-        })
+        res.status(200).json(data)
         clientInfo.close()
 
     } catch (error) {
@@ -143,22 +139,30 @@ app.post('/login', async (req, res) => {
         let result = await db.collection("users").findOne({
             email: req.body.email
         })
+        console.log(result)
         if (result) {
             let isTrue = await bcrypt.compare(req.body.password, result.password)
             if (isTrue) {
                 res.status(200).json({
-                    message: 'user login sucessful'
+                    message: 'user login successful'
                 })
 
+            clientInfo.close()
+
+
             } else {
-                res.status(200).json({
+                res.status(400).json({
                     message: "Login unsuccessful"
                 });
+            clientInfo.close()
+
             }
         } else {
             res.status(400).json({
                 message: "User not registered"
             });
+            clientInfo.close()
+
         }
     } catch (error) {
         console.log(error)
@@ -205,7 +209,7 @@ app.post('/forgetpassword', async (req, res) => {
                 }
             })
             res.status(200).json({
-                message: "user exists"
+                message: "user exists, Please check your mail"
             })
             clientInfo.close()
         } else {
@@ -246,11 +250,15 @@ app.put('/updatePassword/:randomString', async (req, res) => {
 
         let clientInfo = await mongoClient.connect(dbURL)
         let db = clientInfo.db('student-mentor-details')
+        let salt = await bcrypt.genSalt(15)
+        let hash = await bcrypt.hash(req.body.password, salt)
+        req.body.password = hash
         let result =  await db.collection('users').updateOne({
             "randomstring": req.params.randomString
         }, {
             $set: {
-                "password": req.body.password
+                "password": req.body.password,
+                "randomstring": ''
             }
         })
         if (result) {
@@ -261,7 +269,7 @@ app.put('/updatePassword/:randomString', async (req, res) => {
         }
         else{
             res.status(400).json({
-                message: "password updated unsuccessful  exists"
+                message: "password updated unsuccessful  "
             })
         }
     } catch (error) {
