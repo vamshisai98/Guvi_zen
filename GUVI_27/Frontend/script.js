@@ -1,4 +1,4 @@
-var url = 'http://localhost:3000'
+var url = 'https://mentor-assign-node-app.herokuapp.com'
 var mentorPrev;
 function getStudents() {
 
@@ -23,14 +23,10 @@ function createStudentTable(id, name, email, phno, mentor) {
     td2.innerHTML = email
     let td3 = document.createElement("td")
     td3.innerHTML = phno
-    let td4 = document.createElement("td")
-    td4.innerHTML = `
-<button type="button" class="btn btn-dark"><i class="far fa-edit"></i></button>
-<button type="button" class="btn btn-dark"><i class="far fa-trash-alt"></i></button>
-`
+
     let td5 = document.createElement("td")
     td5.innerHTML = mentor
-    tr.append(td1, td2, td3, td4, td5)
+    tr.append(td1, td2, td3, td5)
     document.getElementById('tbody').append(tr)
 }
 
@@ -43,14 +39,10 @@ function createMentorTable(id, name, email, phno, students) {
     let td3 = document.createElement("td")
     td3.innerHTML = phno
     let td4 = document.createElement("td")
-    td4.innerHTML = `
-    
-<button type="button" class="btn btn-dark"><i class="far fa-edit"></i></button>
-<button type="button" class="btn btn-dark"><i class="far fa-trash-alt"></i></button>
-`
+   
     let td5 = document.createElement("td")
     td5.innerHTML = students
-    tr.append(td1, td2, td3, td4, td5)
+    tr.append(td1, td2, td3,  td5)
     document.getElementById('tbody1').append(tr)
 }
 

@@ -10,7 +10,7 @@ function updatePwd(){
     console.log(password)
 
     if(password !==''){
-        fetch('http://localhost:3000/updatePassword/'+str,{
+        fetch('https://auth-login-node.herokuapp.com/updatePassword/'+str,{
             method:"PUT",
             headers:{
                 "Content-type":"application/json",

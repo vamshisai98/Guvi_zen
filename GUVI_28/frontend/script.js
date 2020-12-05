@@ -1,4 +1,4 @@
-var url = 'http://localhost:3000'
+var url = 'https://auth-login-node.herokuapp.com'
 
 function resetPassword() {
     console.log('working')
@@ -15,7 +15,7 @@ let closeBox = () => {
 let verifyEmail = () => {
     let email = document.getElementById('email1').value
     console.log(email)
-    if (email !== '') {
+  
 
         fetch(url + '/forgetpassword', {
                 method: 'POST',
@@ -31,11 +31,10 @@ let verifyEmail = () => {
             })
             .then((result) => {
                 alert(result.message)
-                document.getElementById('email1').value = ''
             })
-    } else {
-        alert('Please provide email')
-    }
+    // else {
+    //     alert('Please provide email')
+    // }
 }
 
 let loginEmail = () => {
