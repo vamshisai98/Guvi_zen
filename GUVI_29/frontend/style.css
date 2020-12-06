@@ -1,0 +1,40 @@
+body {
+    background-image: url('https://mdbootstrap.com/img/Photos/Horizontal/Nature/full page/img(11).jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+.navbar-main a:focus {
+    background-color: #17a2b8;
+    color: white;
+}
+
+.navbar-main {
+    display: flex !important;
+    justify-content: space-around;
+
+}
+
+.about-content {
+    justify-content: space-between;
+
+}
+.content-heading,
+.work-heading,
+.skill-heading {
+    font-size: 30px;
+}
+
+.bg-light {
+    background:#f8f9faba !important;
+  }
+  .bg-info{
+   background:#17a2b89e !important
+  }
+  .bg-white{
+    background-color: #ffffff9e!important;
+  }
+  .bg-dark{
+    background-color: #343a40a8!important;
+  }
