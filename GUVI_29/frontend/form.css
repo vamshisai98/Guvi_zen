@@ -1,0 +1,4 @@
+.school-title,.work-title{
+ flex-direction: row;
+ justify-content: space-between;   
+}

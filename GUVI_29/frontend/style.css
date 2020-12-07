@@ -3,11 +3,15 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
+    
+}
+html{
+  scroll-behavior: smooth;
 }
 
 .navbar-main a:focus {
     background-color: #17a2b8;
-    color: white;
+    color: white !important;
 }
 
 .navbar-main {
@@ -37,4 +41,8 @@ body {
   }
   .bg-dark{
     background-color: #343a40a8!important;
+  }
+
+  .bg-linear{
+    background-image: linear-gradient(to right, #17a2b89e, #f8f9faba);
   }
