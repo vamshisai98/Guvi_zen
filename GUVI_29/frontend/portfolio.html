@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,131 +11,154 @@
     <script src="https://kit.fontawesome.com/030c13dc16.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body class="bg-dark">
     <div class="container  text-white  p-3">
         <div class="navigation-bar  ">
-              <nav class="navbar navbar-expand-lg navbar-light bg-linear rounded ">
+            <nav class="navbar navbar-expand-lg navbar-light bg-linear rounded ">
                 <a class="navbar-brand" href="#"></a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse " id="navbarNav">
-                  <ul class="navbar-nav">
-                    <li class="nav-item ">
-                        <a class="nav-link" href="#home">Home</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="#about">About</a>
-                      </li>
-                      
-                      <li class="nav-item">
-                        <a class="nav-link " href="#work">Work</a>
-                      </li>
-  
-                      <li class="nav-item">
-                          <a class="nav-link " href="#skill">Skills</a>
+                    <ul class="navbar-nav">
+                        <li class="nav-item ">
+                            <a class="nav-link" href="#home">Home</a>
                         </li>
-  
                         <li class="nav-item">
-                          <a class="nav-link " href="#contact">Contact</a>
+                            <a class="nav-link" href="#about">About</a>
                         </li>
-                  </ul>
+
+                        <li class="nav-item">
+                            <a class="nav-link " href="#work">Work</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link " href="#skill">Skills</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link " href="#contact">Contact</a>
+                        </li>
+                    </ul>
                 </div>
-              </nav>
-          
-              
+            </nav>
+
+
+        </div>
+
+
+        <div class="home m-3 row bg-light text-dark p-3 rounded" id="home">
+            <div class=" col-md-5 col-sm-4 col-xs-4 profile-pic text-center ">
+                <img src="https://picsum.photos/200/200" class="img-fluid img-thumbnail rounded-circle" alt="...">
             </div>
-
-
-            <div class="home m-3 row bg-light text-dark p-3 rounded" id="home">
-                <div class=" col-md-5 col-sm-4 col-xs-4 profile-pic text-center ">
-                    <img src="https://picsum.photos/200/200" class="img-fluid img-thumbnail rounded-circle" alt="...">
-                </div>
-                <div class=" col-md-6 col-sm-6  col-xs-6  bio-details  "  >
-                   <div style="font-size: 20px;">hi there, I am</div>
-                    <div class=" display-4 bio-name "  id="bio-name"> Sai Vamshi Anirudh </div>
-                    <label id="role">Full stack developer</label>
-                    <!-- <div class="location"> Bangalore</div> -->
-                </div>
+            <div class=" col-md-6 col-sm-6  col-xs-6  bio-details  ">
+                <div style="font-size: 20px;">hi there, I am</div>
+                <div class=" display-4 bio-name " id="bio-name"> Sai Vamshi Anirudh </div>
+                <label id="role">Full stack developer</label>
+                <!-- <div class="location"> Bangalore</div> -->
             </div>
+        </div>
 
 
-            <div class="about m-3 row bg-info p-3 text-white rounded" id="about">
-                <div class=" display-4 about-title col-md-12 col-sm-12 bg-white text-dark">Education</div>
-                <div class="about-content col-md-12 col-sm-12 ">
-                    <div class="school">
-                        <div class="row school col-md-12 col-sm-12 mt-3 ">
-                            <div class="content-heading col-md-6 col-sm-6" id="school">Venkat International public school</div>
-                            <div class="content-time col-md-6 col-sm-6 text-right" id="school-year">2009 - 20150</div>
+        <div class="about m-3 row bg-info p-3 text-white rounded" id="about">
+            <div class=" display-4 about-title col-md-12 col-sm-12 bg-white text-dark">Education</div>
+            <div class="about-content col-md-12 col-sm-12 ">
+                <div class="school">
+                    <div class="row school col-md-12 col-sm-12 mt-3 ">
+                        <div class="content-heading col-md-6 col-sm-6" id="school">Venkat International public school
                         </div>
-                        <div class="row cgpa ml-3">CGPA: 
-                            <div class="schoo-cgpa col-md-6 col-sm-6 ml-1 " id="schoo-cgpa">9.8</div>
-                        </div>
+                        <div class="content-time col-md-6 col-sm-6 text-right" id="school-year">2013</div>
                     </div>
-                    <div class="college">
-                        <div class="row college-name col-md-12 col-sm-12 mt-3">
-                            <div class="content-heading col-md-6 col-sm-6" id="school">SJB Institute Of Technology</div>
-                            <div class="content-time col-md-6 col-sm-6 text-right" id="school-year">2015 - 2019</div>
-                        </div>
-                        <div class="row ">
-                            <div class="college-major col-sm-10 col-md-10 ml-3">BE Computer Science</div>
-                         
-                        </div>
-                        <div class="row ml-3">CGPA
-                            <div class="college-cgpa col-md-6 col-sm-6 ml-1" id="college-cgpa">6.5</div>
-                        </div>
+                    <div class="row cgpa ml-3">CGPA:
+                        <div class="school-cgpa col-md-6 col-sm-6 ml-1 " id="school-cgpa">9.8</div>
                     </div>
                 </div>
-            </div>
 
-
-            <div class="work m-3 row bg-light p-3 text-dark rounded" id="work">
-                <div class=" display-4 work-title col-md-12 col-sm-12 bg-dark text-white">Work</div>
-                <div class="work-content col-md-12 col-sm-12 ">
-                    <div class="row work col-md-12 col-sm-12 mt-3 ">
-                        <div class="work-heading col-md-6 col-sm-6" id="work">Robert Bosch</div>
-                        <div class="work-time col-md-6 col-sm-6 text-right" id="work-year">Jan 2019 - Mar 2020</div>
-                        <div class="work-role col-md-12 col-sm-12">Intern</div>
-                    </div>
-
-                    <div class="row work col-md-12 col-sm-12 mt-3 ">
-                        <div class="work-heading col-md-6 col-sm-6" id="work">Infosys</div>
-                        <div class="work-time col-md-6 col-sm-6 text-right" id="work-year"> April 2020 - Jan 2021</div>
-                        <div class="work-role col-md-12 col-sm-12">full stack developer</div>
-                    </div>
+                <div class=highschool>
+                    <div class="row highschool col-md-12 col-sm-12 mt-3">
+                        <div class="content-heading col-md-6 col-sm-6" id="highschool"> St.john's College </div>
+                                <div class="content-time col-md-6 col-sm-6 text-right" id="highschoolyear">2015
+                                </div>
+                            </div>
+                            <div class="row cgpa ml-3">CGPA:
+                                <div class="highschool-cgpa col-md-6 col-sm-6 ml-1 " id="highschool-cgpa">9.8</div>
+                            </div>
+                        </div>
                  
-                </div>
-            </div>
+               
 
-
-            <div class="skill m-3 row bg-info p-3 text-white rounded" id="skill">
-                <div class=" display-4 skill-title col-md-12 col-sm-12 bg-white text-dark">Skills</div>
-                <div class="skill-content col-md-12 col-sm-12 ">
-                    <div class="row skill col-md-12 col-sm-12 mt-3 ">
-                        <div class="skill-heading col-md-12 col-sm-12" id="skill">Javascript HTML/CSS React JS Angular Nodejs</div>
+                <div class="college">
+                    <div class="row college-name col-md-12 col-sm-12 mt-3">
+                        <div class="content-heading col-md-6 col-sm-6" id="school">SJB Institute Of Technology</div>
+                        <div class="content-time col-md-6 col-sm-6 text-right" id="school-year">2019</div>
                     </div>
-                </div>
-            </div>
+                    <div class="row ">
+                        <div class="college-major col-sm-10 col-md-10 ml-3">BE Computer Science</div>
 
-
-            <div class="contact m-3 row bg-light p-3 text-dark rounded" id="contact">
-                <div class=" display-4 contact-title col-md-12 col-sm-12 bg-dark text-white">Contact</div>
-                <div class="contact-content col-md-12 col-sm-12 ">
-                    <div class="row contact col-md-12 col-sm-12 mt-3 ">
-                        <div class="contact-heading col-md-12 col-sm-10" id="contact-email"><i class="fas fa-envelope"></i>saivamshianirudh136@gmail.com</div>
-                        <div class="contact-heading col-md-12 col-sm-10" id="contact-linkedin"><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/saivamshi-anirudh-56a49116b/">Linkedin </a> </div>
-                        <div class="contact-heading col-md-12 col-sm-10" id="contact-github"><i class="fab fa-github"></i><a href="https://github.com/vamshisai98"> Github</a> </div>
-
-
-                    </div>            
+                    </div>
+                    <div class="row ml-3">CGPA
+                        <div class="college-cgpa col-md-6 col-sm-6 ml-1" id="college-cgpa">6.5</div>
+                    </div>
                 </div>
             </div>
         </div>
 
 
-        
- 
+        <div class="work m-3 row bg-light p-3 text-dark rounded" id="work">
+            <div class=" display-4 work-title col-md-12 col-sm-12 bg-dark text-white">Work</div>
+            <div class="work-content col-md-12 col-sm-12 ">
+                <div class="row work col-md-12 col-sm-12 mt-3 ">
+                    <div class="work-heading col-md-6 col-sm-6" id="work">Robert Bosch</div>
+                    <div class="work-time col-md-6 col-sm-6 text-right" id="work-year">Jan 2019 - Mar 2020</div>
+                    <div class="work-role col-md-12 col-sm-12">Intern</div>
+                </div>
+
+                <div class="row work col-md-12 col-sm-12 mt-3 ">
+                    <div class="work-heading col-md-6 col-sm-6" id="work">Infosys</div>
+                    <div class="work-time col-md-6 col-sm-6 text-right" id="work-year"> April 2020 - Jan 2021</div>
+                    <div class="work-role col-md-12 col-sm-12">full stack developer</div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="skill m-3 row bg-info p-3 text-white rounded" id="skill">
+            <div class=" display-4 skill-title col-md-12 col-sm-12 bg-white text-dark">Skills</div>
+            <div class="skill-content col-md-12 col-sm-12 ">
+                <div class="row skill col-md-12 col-sm-12 mt-3 ">
+                    <div class="skill-heading col-md-12 col-sm-12" id="skill">Javascript HTML/CSS React JS Angular
+                        Nodejs</div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="contact m-3 row bg-light p-3 text-dark rounded" id="contact">
+            <div class=" display-4 contact-title col-md-12 col-sm-12 bg-dark text-white">Contact</div>
+            <div class="contact-content col-md-12 col-sm-12 ">
+                <div class="row contact col-md-12 col-sm-12 mt-3 ">
+                    <div class="contact-heading col-md-12 col-sm-10" id="contact-email"><i
+                            class="fas fa-envelope"></i>saivamshianirudh136@gmail.com</div>
+                    <div class="contact-heading col-md-12 col-sm-10" id="contact-linkedin"><i
+                            class="fab fa-linkedin"></i> <a
+                            href="https://www.linkedin.com/in/saivamshi-anirudh-56a49116b/">Linkedin </a> </div>
+                    <div class="contact-heading col-md-12 col-sm-10" id="contact-github"><i class="fab fa-github"></i><a
+                            href="https://github.com/vamshisai98"> Github</a> </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
 
     <script src="script.js"></script>
 </body>
+
 </html>
