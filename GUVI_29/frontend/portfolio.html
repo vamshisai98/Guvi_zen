@@ -14,6 +14,12 @@
 
 <body class="bg-dark">
     <div class="container  text-white  p-3">
+        <div class="edit m-1">
+           <a href="index.html">
+
+           <button type="button" class="btn" onclick="fetchCall()"><i class="far fa-edit"></i></button>
+        </a>
+        </div>
         <div class="navigation-bar  ">
             <nav class="navbar navbar-expand-lg navbar-light bg-linear rounded ">
                 <a class="navbar-brand" href="#"></a>
@@ -55,7 +61,7 @@
             </div>
             <div class=" col-md-6 col-sm-6  col-xs-6  bio-details  ">
                 <div style="font-size: 20px;">hi there, I am</div>
-                <div class=" display-4 bio-name " id="bio-name"> Sai Vamshi Anirudh </div>
+                <div class=" display-4 bio-name " id="bio-name"></div>
                 <label id="role">Full stack developer</label>
                 <!-- <div class="location"> Bangalore</div> -->
             </div>
@@ -79,7 +85,7 @@
                 <div class=highschool>
                     <div class="row highschool col-md-12 col-sm-12 mt-3">
                         <div class="content-heading col-md-6 col-sm-6" id="highschool"> St.john's College </div>
-                                <div class="content-time col-md-6 col-sm-6 text-right" id="highschoolyear">2015
+                                <div class="content-time col-md-6 col-sm-6 text-right" id="highschool-year">2015
                                 </div>
                             </div>
                             <div class="row cgpa ml-3">CGPA:
@@ -91,11 +97,11 @@
 
                 <div class="college">
                     <div class="row college-name col-md-12 col-sm-12 mt-3">
-                        <div class="content-heading col-md-6 col-sm-6" id="school">SJB Institute Of Technology</div>
-                        <div class="content-time col-md-6 col-sm-6 text-right" id="school-year">2019</div>
+                        <div class="content-heading col-md-6 col-sm-6" id="college">SJB Institute Of Technology</div>
+                        <div class="content-time col-md-6 col-sm-6 text-right" id="college-year">2019</div>
                     </div>
                     <div class="row ">
-                        <div class="college-major col-sm-10 col-md-10 ml-3">BE Computer Science</div>
+                        <div class="college-major col-sm-10 col-md-10 ml-3" id="college-major">BE Computer Science</div>
 
                     </div>
                     <div class="row ml-3">CGPA
@@ -108,18 +114,18 @@
 
         <div class="work m-3 row bg-light p-3 text-dark rounded" id="work">
             <div class=" display-4 work-title col-md-12 col-sm-12 bg-dark text-white">Work</div>
-            <div class="work-content col-md-12 col-sm-12 ">
-                <div class="row work col-md-12 col-sm-12 mt-3 ">
+            <div class="work-content col-md-12 col-sm-12 " id="work-content">
+                <!-- <div class="row work col-md-12 col-sm-12 mt-3 ">
                     <div class="work-heading col-md-6 col-sm-6" id="work">Robert Bosch</div>
                     <div class="work-time col-md-6 col-sm-6 text-right" id="work-year">Jan 2019 - Mar 2020</div>
-                    <div class="work-role col-md-12 col-sm-12">Intern</div>
-                </div>
-
+                    <div class="work-role col-md-12 col-sm-12 " id="work-role">Intern</div>
+                </div> -->
+<!-- 
                 <div class="row work col-md-12 col-sm-12 mt-3 ">
                     <div class="work-heading col-md-6 col-sm-6" id="work">Infosys</div>
                     <div class="work-time col-md-6 col-sm-6 text-right" id="work-year"> April 2020 - Jan 2021</div>
                     <div class="work-role col-md-12 col-sm-12">full stack developer</div>
-                </div>
+                </div> -->
 
             </div>
         </div>
@@ -129,7 +135,7 @@
             <div class=" display-4 skill-title col-md-12 col-sm-12 bg-white text-dark">Skills</div>
             <div class="skill-content col-md-12 col-sm-12 ">
                 <div class="row skill col-md-12 col-sm-12 mt-3 ">
-                    <div class="skill-heading col-md-12 col-sm-12" id="skill">Javascript HTML/CSS React JS Angular
+                    <div class="skill-heading col-md-12 col-sm-12" id="skill-details">Javascript HTML/CSS React JS Angular
                         Nodejs</div>
                 </div>
             </div>
