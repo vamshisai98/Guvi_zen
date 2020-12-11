@@ -1,0 +1,79 @@
+body {
+	color: #999;
+	background: #f5f5f5;
+	font-family: 'Varela Round', sans-serif;
+}
+.form-control {
+	box-shadow: none;
+	border-color: #ddd;
+}
+
+.login-form .register-form .verification-form{
+	width: 350px;
+	margin: 0 auto;
+	padding: 30px 0;
+}
+.login-form form, .register-form form ,.verification-form form {
+	color: #434343;
+	border-radius: 1px;
+	margin-bottom: 15px;
+	background: #fff;
+	border: 1px solid #f3f3f3;
+	box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    padding: 30px;
+    max-width: 400px;
+    margin: 0 auto;
+}
+.login-form h4 ,.register-form h4, .verification-form h4{
+	text-align: center;
+	font-size: 22px;
+	margin-bottom: 20px;
+}
+.login-form .avatar ,.register-form .avatar {
+	color: #fff;
+	margin: 0 auto 30px;
+	text-align: center;
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	z-index: 9;
+	background: #4aba70;
+	padding: 15px;
+	box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+}
+.register-form .avatar i,.login-form .avatar i {
+	font-size: 62px;
+}
+.login-form .form-group  .register-form .form-group , .verification-form .form-group{
+	margin-bottom: 20px;
+}
+.login-form .form-control, .login-form .btn , .register-form .form-control , .register-form .btn ,.verification-form .form-control, .verification-form .btn{
+	min-height: 40px;
+	border-radius: 2px; 
+	transition: all 0.5s;
+}
+
+.login-form .btn, .login-form .btn:active ,.register-form .btn, .register-form .btn:active , .verification-form .btn, .verification-form .btn:active {
+	background: #4aba70 !important;
+	border: none;
+	line-height: normal;
+	
+}
+
+.login-form .small , .register-form .small{
+	font-size: 13px;
+}
+
+
+.register-form, .verification-form{
+	display: none;
+}
+.loginbut{
+	color: white !important;
+}
+.btn-f{
+	background: none;
+	border: none;
+	color: #4aba70;
+}
+
