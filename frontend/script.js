@@ -35,6 +35,7 @@ let verifyEmail = () => {
             })
  
 }
+//changes
 let loginEmail = () => {
 
     let email = document.getElementById('email').value;
