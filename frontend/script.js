@@ -31,10 +31,9 @@ let verifyEmail = () => {
             })
             .then((result) => {
                 alert(result.message)
+                window.location.href = 'https://login-authentication.netlify.app/test.html'
             })
-    // else {
-    //     alert('Please provide email')
-    // }
+ 
 }
 
 let loginEmail = () => {
@@ -110,7 +109,7 @@ let registerEmaildiv = () => {
     document.getElementById('box-3').style.display = 'block'
     document.getElementById('box-1').style.display = "none";
 }
-//close register modal
+
 let closeRegister = () => {
     document.getElementById('box-3').style.display = 'none'
     document.getElementById('box-1').style.display = "block";
