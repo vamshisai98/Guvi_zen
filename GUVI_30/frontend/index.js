@@ -42,16 +42,17 @@ let userLogin = () => {
             })
          })
          .then((response) => {
-            
             return response.json()
-            
+
          })
          .then((result) => {
-            alert(result.body)
-            console.log(result)
-            window.location.href=`/Frontend/dashboard.html?_id=${result.result._id}`
+            alert(result.message)
+            if (result.status === 200) {
+               localStorage.setItem('token', result.token)
+               window.location.href = `/Frontend/dashboard.html?_id=${result.result._id}`
+            }
          })
-        
+
    } else {
       alert('Fill in all details')
    }
@@ -90,25 +91,25 @@ let userRegister = () => {
 }
 
 
-let verifyEmail =()=>{
+let verifyEmail = () => {
    let email = document.getElementById('email-verify').value
    console.log(email)
- 
 
-       fetch(url + '/forgetpassword', {
-               method: 'POST',
-               headers: {
-                   'Content-type': 'application/json'
-               },
-               body: JSON.stringify({
-                   email
-               })
-           })
-           .then(response => {
-               return response.json()
-           })
-           .then((result) => {
-               alert(result.message)
-           })
-  
+
+   fetch(url + '/forgetpassword', {
+         method: 'POST',
+         headers: {
+            'Content-type': 'application/json'
+         },
+         body: JSON.stringify({
+            email
+         })
+      })
+      .then(response => {
+         return response.json()
+      })
+      .then((result) => {
+         alert(result.message)
+      })
+
 }
