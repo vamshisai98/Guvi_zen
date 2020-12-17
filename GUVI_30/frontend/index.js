@@ -1,4 +1,4 @@
-var url = 'http://url-shortner-ap.herokuapp.com'
+var url = 'https://url-shortner-ap.herokuapp.com'
 const proxyurl = "https://cors-anywhere.herokuapp.com/";
 
 let signUp = () => {
