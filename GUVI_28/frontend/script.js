@@ -31,12 +31,11 @@ let verifyEmail = () => {
             })
             .then((result) => {
                 alert(result.message)
+                // window.location.href = 'https://login-authentication.netlify.app/test.html'
             })
-    // else {
-    //     alert('Please provide email')
-    // }
+ 
 }
-
+//changes
 let loginEmail = () => {
 
     let email = document.getElementById('email').value;
