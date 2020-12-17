@@ -1,4 +1,5 @@
-var url = 'http://localhost:3000'
+var url = 'http://url-shortner-ap.herokuapp.com'
+const proxyurl = "https://cors-anywhere.herokuapp.com/";
 
 let signUp = () => {
    console.log('working')
@@ -96,16 +97,16 @@ let verifyEmail = () => {
    console.log(email)
 
 
-   fetch(url + '/forgetpassword', {
+   fetch( url + '/forgetpassword', {
          method: 'POST',
          headers: {
-            'Content-type': 'application/json'
+            'Content-type': 'application/json',
          },
          body: JSON.stringify({
             email
          })
       })
-      .then(response => {
+      .then((response) => {
          return response.json()
       })
       .then((result) => {

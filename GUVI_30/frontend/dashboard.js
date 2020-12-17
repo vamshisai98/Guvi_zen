@@ -1,7 +1,7 @@
 
 
 
-var url = 'http://localhost:3000'
+var url = 'https://url-shortner-ap.herokuapp.com'
 
 let id_url = window.location.href
 let arr = id_url.split('=')
@@ -55,7 +55,7 @@ let getData = ()=>{
              let td = document.createElement('td')
              td.innerHTML = x.longURL
              let td1 = document.createElement('td')
-             td1.innerHTML = `<a href="http://localhost:3000/getLongUrl/${x.shortURL}" target="_blank">${x.shortURL}</a>`
+             td1.innerHTML = `<a href="https://url-shortner-ap.herokuapp.com/getLongUrl/${x.shortURL}" target="_blank">${x.shortURL}</a>`
              let tr = document.createElement('tr')
              let td2 = document.createElement('td')
              td2.innerHTML= x.count

@@ -8,7 +8,7 @@ let updatePwd = ()=>{
     console.log(password)
 
     if(password !==''){
-        fetch('http://localhost:3000/updatePassword/'+str,{
+        fetch('https://url-shortner-ap.herokuapp.com/updatePassword/'+str,{
             method:"PUT",
             headers:{
                 "Content-type":"application/json",
