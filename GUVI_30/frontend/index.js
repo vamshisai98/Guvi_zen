@@ -50,7 +50,7 @@ let userLogin = () => {
             alert(result.message)
             if (result.status === 200) {
                localStorage.setItem('token', result.token)
-               window.location.href = `/Frontend/dashboard.html?_id=${result.result._id}`
+               window.location.href = `/dashboard.html?_id=${result.result._id}`
             }
          })
 
